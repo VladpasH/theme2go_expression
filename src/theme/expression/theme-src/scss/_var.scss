@@ -1,0 +1,29 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Primary Break Points
+// ---------------------------------------------------------------------------------------------------------------------
+
+$bp-small: 568px; // does not apply to rocksolid columns (only medium and large)
+$bp-medium: 768px;
+$bp-large: 1024px;
+$bp-mlarge: 1366px;
+$bp-xlarge: 1500px;
+
+$content-maxwidth-xl: 1400px;
+$content-maxwidth-l: 1200px;
+$content-maxwidth-m: 100%;
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Font Sizes
+$f-size-base: 10px;
+
+$fw-light: 300;
+$fw-normal: 400;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+$header-height: 100px;
+$header-height-scrolled: 80px;
+
+$logo-height: 80px;
+$logo-height-tablet: 75px;
+$logo-height-scrolled: 70px;

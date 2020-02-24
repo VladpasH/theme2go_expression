@@ -1,0 +1,57 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Service Bar
+// ---------------------------------------------------------------------------------------------------------------------
+
+.service-bar {
+    display: block;
+    width: 100%;
+    height: 20px;
+    font-size: 13px;
+
+    @include breakpoint($bp-large) {
+        display: none;
+    }
+
+    &__content {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include clearfix;
+        transition: max-width .5s ease-out, width .5s ease-out, height .5s ease-in;
+
+        .mod_article {
+            padding: 0;
+            margin: 0;
+        }
+
+        @include breakpoint($bp-large) {
+            width: 100%;
+        }
+
+        @include breakpoint($bp-xlarge, min) {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        > div, nav {
+            display: inline-block;
+            float: right;
+
+            &:first-child {
+                margin-right: 10px;
+                margin-left: 20px;
+                transition: margin .5s ease-out;
+
+                @include breakpoint(1700px, min) {
+                    margin-right: -50px;
+                }
+            }
+        }
+
+        p, li, a {
+            margin-bottom: 0;
+            line-height: 20px;
+            border-bottom: 0;
+        }
+    }
+}

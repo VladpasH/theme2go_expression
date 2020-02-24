@@ -1,0 +1,58 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Content Slider
+// ---------------------------------------------------------------------------------------------------------------------
+
+.ce_sliderStart {
+    position: relative;
+}
+
+.slider-control {
+    height: 40px;
+    position: absolute;
+    bottom: 5px;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    text-align: center;
+
+    a {
+        font-size: 20px;
+    }
+
+    a{
+        position: relative;
+        top: auto;
+        display: inline-block;
+        vertical-align: top;
+        text-indent: -9999px;
+        transition: border-color .3s ease, background-color .3s ease, color .3s ease;
+    }
+    .slider-menu {
+        position: relative;
+        display: inline-block;
+        width: auto;
+        left: auto;
+        margin-left: auto;
+        font-size: 18px;
+        text-align: center;
+        cursor: default;
+
+        b {
+            text-indent: -9999px;
+            display: block;
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin: 0 3px;
+            @extend %button-outlined;
+        }
+    }
+    .slider-prev {
+        left: auto;
+        @extend %arrow-fine-left;
+    }
+    .slider-next {
+        right: auto;
+        @extend %arrow-fine-right;
+    }
+}

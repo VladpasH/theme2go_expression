@@ -1,0 +1,20 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Change Language | extension - only shows if installed and implemented in layouts. Styling is for implementation
+// in service bar
+// ---------------------------------------------------------------------------------------------------------------------
+
+.mod_changelanguage {
+    li {
+        display: inline-block;
+        margin-left: 15px;
+
+        a {
+            border: 0;
+        }
+    }
+
+    .active {
+        opacity: .8;
+        cursor: default;
+    }
+}

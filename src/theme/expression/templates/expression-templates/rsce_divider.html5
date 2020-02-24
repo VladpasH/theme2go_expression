@@ -1,0 +1,12 @@
+<?php if ($this->headline): ?>
+	<<?php echo $this->hl ?> class="headline-divider <?php echo $this->align . ' ' . $this->color ?>"<?php echo $this->cssID ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+		<?php echo $this->headline ?>
+	</<?php echo $this->hl ?>>
+<?php else: ?>
+	<?php if ($this->symbol): ?>
+	    <span class="divider symbol <?php echo $this->symbol . ' ' . $this->color . ' ' . $this->align ?>" <?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?> >
+	<?php endif ?>
+		<hr class="<?php echo $this->class . ' ' . $this->color ?>"<?php echo $this->cssID ?> >
+	<?php if ($this->symbol): ?></span><?php endif ?>
+<?php endif ?>
+

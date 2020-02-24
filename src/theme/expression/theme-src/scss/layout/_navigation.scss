@@ -1,0 +1,402 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Navigation - Main Navigation  - Normal Hover Navigation
+// ---------------------------------------------------------------------------------------------------------------------
+
+.main-nav {
+    width: auto;
+    margin: 0;
+    height: 100%;
+    position: relative;
+    float: right;
+    overflow: visible;
+    transition: margin .5s ease-out;
+    margin-right: -50px;
+
+    @include breakpoint(1700px, min) {
+        margin-right: -60px;
+    }
+
+    @include breakpoint($bp-large) {
+        display: none;
+    }
+
+    .mod_navigation {
+        float: right;
+        overflow: visible;
+
+        @include breakpoint($bp-large) { //activated mobile navigation
+            float: none;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+    }
+
+    .menu-item {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        font-weight: $fw-normal;
+
+        transition: all 0.3s;
+
+        a {
+            text-decoration: none;
+            display: block;
+
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, line-height .5s ease-in;
+        }
+    }
+    .active {
+        cursor: default;
+    }
+
+    .level_1 {
+        width: 100%;
+
+        > .menu-item {
+            float: left;
+            width: auto;
+            overflow: visible;
+            padding: 0;
+
+            @include breakpoint($bp-large) {
+                float: none;
+                margin-left: 0;
+                width: 100%;
+            }
+
+            > a, > span {
+                background-color: transparent;
+                text-align: center;
+                line-height: $header-height;
+                font-size: 20px;
+                padding: 0 25px;
+                .scrolled & {
+                    line-height: $header-height-scrolled;
+                }
+                @include breakpoint($bp-mlarge) {
+                    font-size: 18px;
+                    padding: 0 12px;
+                }
+                @include breakpoint($bp-large) {
+                    text-align: left;
+                    padding: 0 5px 0 15px;
+                }
+                &:hover, &:focus, &:active {
+                    // change defined in colors.scss
+                }
+            }
+            > span {
+                cursor: default;
+            }
+            &.last {
+                .level_2 {
+                    right: 0;
+                    .level_3 {
+                        right: 100%;
+                        left: auto;
+                    }
+                }
+            }
+            &.submenu {
+                > a, > span {
+                    padding-right: 15px;
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        display: inline-block;
+                        width: 10px;
+                        height: 10px;
+                        border-width: 1px;
+                        border-style: solid;
+                        margin-left: 5px;
+                        transition: transform .3s ease;
+                        transform: translate3d(0,-3px, 0) rotate(45deg);
+                    }
+                    &:hover, &:focus, &:active {
+                        &:after {
+                            transform: translate3d(0,0px, 0) rotate(45deg);
+                        }
+                    }
+                }
+            }
+            //hover and class active state
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 0;
+                position: absolute;
+                bottom: 0;
+                transition: height .3s ease-in-out, background-color .3s ease-in-out;
+            }
+            &:hover {
+                &:after {
+                    height: 5px;
+                }
+            }
+            &.active, &.trail {
+                &:after {
+                    height: 5px;
+                }
+
+                > strong, > span {
+                    display: block;
+                    line-height: $header-height;
+                    padding: 0 30px;
+                    transition: line-height .5s ease-in;
+                    .scrolled & {
+                        line-height: $header-height-scrolled;
+                    }
+                }
+            }
+        }
+        @include breakpoint($bp-large, min) {
+            > .menu-item {
+                &:hover {
+                    &.trail {
+
+                    }
+                    .level_2 {
+                        display: block;
+
+                        > li {
+                            height: auto;
+                        }
+
+                        .trail {
+                            // put styling here or in colors.scss to highlight the active trail
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .level_2 {
+        display: none;
+        list-style: none;
+        position: absolute;
+        top: 100px;
+        width: auto; // adjust width to content!
+        min-width: 100%; // at least as wide as the level_1 block
+        white-space: nowrap;
+        padding: 0;
+        margin: 0;
+        z-index: 100;
+        transition: top .5s ease-in;
+
+        .scrolled & {
+            top: $header-height-scrolled;
+        }
+
+        @include breakpoint($bp-large) {
+            position: relative;
+            top: 0;
+        }
+
+        > .menu-item {
+            height: auto;
+            min-height: 50px;
+
+            > a {
+                background-color: transparent;
+                text-align: left;
+                padding: 0 20px;
+                line-height: 50px;
+                font-size: 16px;
+                @include breakpoint($bp-xlarge) {
+                    padding: 0 5px 0 15px;
+                }
+                &:hover, &:focus, &:active {
+                    // define color change in colors
+                }
+            }
+            @include breakpoint($bp-large, min) {
+                // breakpoint included incase mmenu is not in use, otherwise redundant.
+                &:hover {
+                    &.trail {
+
+                    }
+                    ul.level_3 {
+                        display: block;
+
+                        > li {
+                            height: auto;
+                        }
+                    }
+                }
+            }
+            &.submenu {
+                > a, > span {
+                    position: relative;
+                    padding-right: 25px;
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        width: 8px;
+                        height: 8px;
+                        border-width: 1px;
+                        border-style: solid;
+                        right: 10px;
+                        top: 20px;
+                        transform: rotate(45deg);
+                    }
+                    &:hover {
+                        &:after {
+                            transform: rotate(45deg);
+                        }
+                    }
+                }
+            }
+
+            &.active, &.forward {
+                font-size: 16px;
+                text-align: left;
+                line-height: 50px;
+                display: block;
+
+                span {
+                    display: block;
+                    line-height: 50px;
+                    padding: 0 20px;
+                    background-color: transparent;
+                }
+            }
+
+            &.active {
+                span {
+                    // define state in colors.scss
+                }
+            }
+
+            &.forward {
+                span {
+                    // define state in colors.scss
+                }
+            }
+        }
+    }
+
+    .level_3 {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: auto; // adjust width to content!
+        display: none;
+        list-style: none;
+
+        @include breakpoint($bp-large) {
+            position: relative;
+            right: auto;
+            top: auto;
+        }
+        > .menu-item {
+
+            > a {
+                background-color: transparent;
+                font-size: 16px;
+                text-align: left;
+                padding: 0 20px;
+                line-height: 50px;
+                @include breakpoint($bp-xlarge) {
+                    padding: 0 5px 0 15px;
+                }
+                &:hover, &:focus, &:active {
+                    // define state in colors.scss
+                }
+            }
+
+            &.active, &.forward {
+                font-size: 16px;
+                text-align: left;
+                line-height: 50px;
+                display: block;
+
+                span, strong {
+                    background-color: transparent;
+                    display: block;
+                    line-height: 50px;
+                    padding: 0 20px;
+                }
+            }
+
+            &.active {
+                // define state in colors.scss
+            }
+        }
+    }
+
+
+    // ---------------------------------------------------------------------------------------------------------------------
+    // Navi offcanvas (Tablet & Mobile view)
+
+    @include breakpoint($bp-large) {
+
+        .level_1, .level_2, .level_3 {
+            > .menu-item {
+                height: 100%;
+                min-height: 50px;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+                > a {
+                    font-size: 15px;
+                    line-height: 50px;
+                    &:hover, &:active, &:focus, &.trail {
+                        // define state in colors.scss
+                    }
+                }
+                &.active, &.forward {
+                    font-size: 15px;
+                    text-align: left;
+                    line-height: 50px;
+                    min-height: 50px;
+
+                    span, strong {
+                        padding: 0 5px 0 15px;
+                        line-height: 50px;
+                    }
+
+                    &.submenu {
+                        line-height: 49px;
+
+                        &:after {
+                            display: none;
+                        }
+
+                        span, strong {
+                            line-height: 49px;
+
+                            &.submenu:after {
+                                //display: none;
+                            }
+                        }
+                    }
+                }
+
+                &.submenu {
+                    > a {
+                        // define state in colors.scss
+                    }
+                }
+            }
+        }
+
+        .level_2, .level_3 {
+            > .menu-item {
+                &.first {
+                    border-top-width: 1px;
+                    border-top-style: solid;
+                }
+            }
+        }
+    }
+}   // END .main-nav

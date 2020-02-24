@@ -1,0 +1,10 @@
+
+<?php $this->block('field'); ?>
+<div class="submit_container button-submit">
+<?php if ($this->src): ?>
+    <input type="image" src="<?= $this->src ?>" id="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class) echo ' ' . $this->class; ?>" title="<?= StringUtil::specialchars($this->slabel) ?>" alt="<?= StringUtil::specialchars($this->slabel) ?>"<?= $this->getattributes() ?>>
+<?php else: ?>
+    <input type="submit" id="ctrl_<?= $this->id ?>" value="<?= $this->slabel ?>" class="submit<?php if ($this->class) echo ' ' . $this->class; ?>"<?= $this->getattributes() ?>>
+<?php endif; ?>
+</div>
+<?php $this->endblock(); ?>

@@ -1,0 +1,699 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// News & Events
+// ---------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------
+// global
+
+.post-headline {
+    font-size: 3.6rem;
+    @include breakpoint($bp-medium) {
+        font-size: 2.4rem;
+    }
+
+    a {
+        border: none;
+    }
+}
+.post-subheadline {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+    display: block;
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    @include breakpoint($bp-medium) {
+        font-size: 1.8rem;
+    }
+}
+
+.info, .teaser {
+    margin-bottom: 20px;
+}
+
+.featured-image {
+    margin-bottom: 40px;
+    a {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: background-color .3s ease-in;
+        }
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// list (news and events)
+
+.mod_newslist {
+    position: relative;
+    //margin: -50px auto;  // can't remember what the negative margin is for.
+    padding: 50px 0;
+}
+
+.layout_latest, .layout_teaser, .layout_list {
+    margin-bottom: 100px;
+    position: relative;
+    @include clearfix;
+}
+.layout_teaser, .layout_list {
+    &:first-child {
+        margin-top: 20px;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.news-teaser {
+    margin-top: 40px;
+
+    &.timeline {
+        transition: margin-left .5s ease-out, width .5s ease-out;
+        @include breakpoint($bp-xlarge, min) {
+            margin-left: 100px;
+        }
+    }
+    .image_container {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.info {
+    display: block;
+    width: 100%;
+    padding-bottom: 4px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    font-size: 16px;
+    @include breakpoint($bp-medium) {
+        font-size: 1.4rem;
+    }
+
+    time, .news-author, .news-comment-count {
+        line-height: 1;
+        display: inline-block;
+        font-size: 16px;
+    }
+    time {
+        padding-right: 10px;
+    }
+    .news-author, .news-comment-count {
+        padding: 0 10px;
+        border-left-width: 1px;
+        border-style: solid;
+    }
+
+    .timeline & {
+        .news-author {
+            padding-left: 0;
+            border-left: none;
+        }
+    }
+}
+
+/*
+.more {
+    @extend %button-elegant;
+    @extend %outlined;
+    margin-bottom: 0;
+
+    a {
+        border-bottom: none;
+    }
+}
+*/
+.more {
+    margin-bottom: 0;
+    a {
+        font-weight: 600;
+        padding: 0;
+        @extend %link-half-underline;
+        &:before {
+            display: none;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// timeline list
+
+.timeline-wrapper {
+    margin-right: 0;
+}
+.news-teaser-wrapper {
+    margin-right: 100px;
+
+    @include breakpoint($bp-small) {
+        margin-right: 40px;
+    }
+}
+.date-bar {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    z-index: -1;
+    border-left-width: 1px;
+    border-style: solid;
+
+    @include breakpoint($bp-small) {
+        width: 30px;
+    }
+}
+.fader-box {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    &.top-box {
+        top: 0;
+    }
+    &.bottom-box {
+        bottom: 0;
+    }
+}
+.date-timeline {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 50px;
+    text-align: center;
+    overflow: hidden;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 2px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -ms-transform-origin: 0 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        border-style: solid;
+        border-width: 1px;
+    }
+    .date-day, .date-month {
+        height: 20px;
+        width: 40px;
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: $fw-semibold;
+    }
+    @include breakpoint($bp-small) {
+        width: 30px;
+        &:before {
+            width: 10px;
+            height: 10px;
+            left: -1px;
+        }
+        .date-day, .date-month {
+            width: 30px;
+            margin-left: 0;
+            font-size: 12px;
+        }
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// full - newsreader
+
+.mod_newsreader {
+    //margin-right: 50px;
+
+    h1 {
+        font-size: 3.6rem;
+        @include breakpoint($bp-medium) {
+            font-size: 2.4rem;
+        }
+    }
+    h2 {
+        font-size: 2.4rem;
+        @include breakpoint($bp-medium) {
+            font-size: 1.8rem;
+        }
+    }
+    h3 {
+        font-size: 2.4rem;
+        @include breakpoint($bp-medium) {
+            font-size: 1.8rem;
+        }
+    }
+    h4 {
+        font-size: 2.0rem;
+        @include breakpoint($bp-medium) {
+            font-size: 1.6rem;
+        }
+    }
+    h5 {
+        font-size: 1.8rem;
+        @include breakpoint($bp-medium) {
+            font-size: 1.6rem;
+        }
+    }
+    h2,h3,h4,h5,h6 {
+        margin: 20px auto 10px auto;
+    }
+}
+
+.post-content {
+    margin-top: 40px;
+    transition: margin-left .5s ease-out, width .5s ease-out;
+    @include breakpoint($bp-xlarge, min) {
+        margin-left: 100px;
+    }
+}
+
+.back {
+    padding-left: 20px;
+    a {
+        @extend %button;
+        @extend %button-left-arrow;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// comments
+
+.field-website {
+    display: none;
+}
+
+.ce_comments {
+    margin-top: 75px;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+    .form {
+        margin-top: 50px;
+    }
+    .comment_default {
+        margin-bottom: 25px;
+    }
+    .info {
+        margin-bottom: 5px;
+    }
+    .comment, .reply {
+        margin-bottom: 15px;
+        @include clearfix;
+    }
+    .reply {
+        margin-left: 20px;
+    }
+    // confirm shows a submit confirmation "Your comment has been added and is now pending for approval."
+    .confirm {
+        font-style: italic;
+        padding: 11px 10px;
+        text-align: center;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// mini teaser (news list)
+
+.flexy-wrapper {
+    display: flex;
+    align-items: stretch;
+    margin-left: -1.5%;
+    margin-right: -1.5%;
+    @include breakpoint($bp-large) {
+        margin-left: 0;
+        margin-right: 0;
+        flex-flow: row wrap;
+    }
+}
+
+.mini-teaser {
+    margin: auto;
+    margin-top: 0;
+    min-width: 33.33%;
+    flex: 1 1 0;
+    align-self: flex-start;
+    padding: 0 1.5%;
+    @include breakpoint($bp-large) {
+        flex: 1 0 100%;
+        padding: 0;
+        margin-bottom: 50px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h2, .info {
+        text-align: center;
+    }
+    h2 {
+        margin-bottom: 20px;
+            //for background image
+        //padding-top: 110px; // use padding for background image!
+        background-position: 50% 0;
+        background-size: 90px;
+        background-repeat: no-repeat;
+    }
+    &:first-child {
+        h2 {
+            //noinspection CssUnknownTarget
+            //background-image: url(../images/icons/flower-4.svg);
+        }
+    }
+    &:nth-child(2) {
+        h2 {
+            //noinspection CssUnknownTarget
+            //background-image: url(../images/icons/flower-2.svg);
+        }
+    }
+    &:nth-child(3) {
+        h2 {
+            //noinspection CssUnknownTarget
+            //background-image: url(../images/icons/flower-3.svg);
+        }
+    }
+}
+
+.news-mini-teaser {
+    text-align: left;
+    .teaser {
+        text-align: justify;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// featured image split layout teaser
+.layout_latest {
+    &.split-view {
+        margin-bottom: 100px;
+
+        &.fullwidth {
+            margin-bottom: 0;
+            min-height: 500px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+.inside-boxed {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    max-width: 1200px;
+    transition: max-width .5s ease-out, width .5s ease-out;
+
+    @include breakpoint($bp-large) {
+        width: 100%;
+    }
+    @include breakpoint($bp-xlarge, min) {
+        max-width: 1400px;
+        width: 100%;
+    }
+}
+
+.split-view-image {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top:0;
+    overflow: hidden;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    .even & {
+        left: 0;
+    }
+    .odd & {
+        right: 0;
+    }
+    @include breakpoint($bp-large) {
+        position: relative;
+        top: auto;
+        width: 100%;
+        height: 300px;
+        .even & {
+            left: auto;
+        }
+        .odd & {
+            right: auto;
+        }
+    }
+}
+.split-view-text {
+    width: 50%;
+    padding-bottom: 50px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding-top: 30px;
+
+    &.fullwidth {
+        padding-top: 50px;
+
+        .even & {
+            margin-left: 50%;
+            padding-left: 50px;
+        }
+        .odd & {
+            float: left;
+            margin-right: 50%;
+            padding-right: 50px;
+        }
+    }
+
+    h2 {
+        font-size: 6rem;
+        margin-bottom: 40px;
+    }
+    .teaser-text {
+        margin-bottom: 40px;
+    }
+    @include breakpoint($bp-large) {
+        position: relative;
+        top: auto;
+        width: 100%;
+        padding-top: 10px;
+        .even & {
+            margin: 0 auto;
+            padding-left: 0;
+        }
+        .odd & {
+            float: none;
+            margin: 0 auto;
+            padding-right: 0;
+        }
+        h2 {
+            font-size: 3.6rem;
+            margin-bottom: 15px;
+        }
+    }
+    @include breakpoint($bp-small) {
+        h2 {
+            font-size: 3rem;
+        }
+    }
+}
+
+.split-view {
+    .featured-image {
+        width: 50%;
+        margin-bottom: 0;
+
+        figcaption {
+            display: none;
+        }
+    }
+    &.even {
+        .featured-image {
+            float: left;
+            padding-right: 25px;
+        }
+        .split-view-text {
+            padding-left: 25px;
+            float: left;
+        }
+    }
+    &.odd {
+        .featured-image {
+            float: right;
+            padding-left: 25px;
+        }
+        .split-view-text {
+            padding-right: 25px;
+            float: right;
+        }
+    }
+    @include breakpoint($bp-large) {
+        .featured-image {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        &.even {
+            .featured-image {
+                float: none;
+                padding-right: 0;
+            }
+            .split-view-text {
+                padding-left:0;
+                float: none;
+            }
+        }
+        &.odd {
+            .featured-image {
+                float: none;
+                padding-left: 0;
+            }
+            .split-view-text {
+                padding-right: 0;
+                float: none;
+            }
+        }
+    }
+}
+
+.featured-image {
+
+    + .split-view-text {
+        .odd & {
+            //margin-right: auto;
+        }
+    }
+}
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// sharing
+
+.sharebuttons {
+    float: right;
+    overflow:hidden;
+    > ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        line-height: 40px;
+        float: right;
+        @include clearfix;
+    }
+    li {
+        float: left;
+        position: relative;
+    }
+
+    a {
+        margin:0;
+        display:block;
+        white-space:nowrap;
+        overflow:hidden;
+        text-indent:100%;
+        background-repeat:no-repeat;
+        background-position:center;
+        width:34px;
+        height:40px;
+
+        .icon-social {
+            opacity: 1;
+         }
+
+        &:hover {
+            .icon-social {
+                //opacity: .5;
+            }
+        }
+    }
+    svg.icon-social {
+        width: 24px;
+        height: 24px;
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: 4px;
+        //z-index: -1;
+    }
+}
+.share-label {
+    display: none; // ok for beeblog, not for theme
+
+    float: left;
+    line-height: 40px;
+    font-size: 16px;
+    @include breakpoint($bp-medium) {
+        font-size: 1.4rem;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Calendars
+
+
+.mod_calendar, .mod_eventmenu {
+    overflow-x: auto;
+
+    table {
+        width: 100%;
+        border-spacing: 0;
+    }
+}
+
+.calendar, .minicalendar  {
+    text-align: center;
+    thead {
+        font-weight: $fw-semibold;
+        th {
+            text-align: center;
+        }
+    }
+}
+.calendar {
+    min-width: 700px;
+    td {
+        width: 14%;
+        height: 100px;
+
+        a, a:link {
+            line-height: 1.3;
+            border-bottom-width: 1px;
+            border-style: solid;
+            transition: opacity .3s ease-out, color .3s ease-out, border-color .3s ease-out;
+
+            &:hover, &:active, &:focus {
+                //opacity: .8;
+            }
+        }
+    }
+    th {
+        &.current {
+            border-left: 0;
+        }
+        &.next {
+            border-left: 0;
+        }
+    }
+    .event {
+        font-size: 15px;
+    }
+}
+
+.minicalendar {
+    thead {
+        font-size: 14px;
+    }
+    td {
+        font-size: 15px;
+        width: 14%;
+    }
+}

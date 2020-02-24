@@ -1,0 +1,21 @@
+
+<div class="layout_latest mini-teaser arc_<?= $this->archive->id ?> block<?= $this->class ?>">
+  <h2 class="post-headline"><?= $this->linkHeadline ?></h2>
+
+  <div class="news-mini-teaser">
+      <?php if ($this->hasMetaFields): ?>
+        <p class="info">
+            <time datetime="<?= $this->datetime ?>"><?php echo $this->parseDate("F d", $this->timestamp); ?></time></span>
+        </p>
+      <?php endif; ?>
+
+      <div class="teaser">
+        <?= $this->teaser ?>
+      </div>
+
+      <?php if ($this->hasText): ?>
+        <p class="more"><?= $this->more ?></p>
+      <?php endif; ?>
+  </div>
+
+</div>

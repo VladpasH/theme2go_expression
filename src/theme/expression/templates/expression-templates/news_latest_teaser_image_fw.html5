@@ -1,0 +1,21 @@
+
+<!-- check if teaser has an image -->
+<?php if ($this->addImage): ?>
+
+<div class="layout_latest arc_<?= $this->archive->id ?> split-view fullwidth block<?= $this->class ?>">
+    <div class="inside-boxed">
+        <div class="split-view-image" style="background-image: url(<?php  echo $this->getImage($this->urlEncode($this->singleSRC), 1080, 369 ); ?>)">
+            <!-- image as background image -->
+        </div>
+        <div class="split-view-text">
+            <h2 class="post-headline"><?= $this->newsHeadline ?></h2>
+            <div class="teaser-text">
+                <?= $this->teaser ?>
+            </div>
+            <?php if ($this->hasText): ?>
+                <p class="more"><?= $this->more ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

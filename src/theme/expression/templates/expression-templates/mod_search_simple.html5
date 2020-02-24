@@ -1,0 +1,15 @@
+<div class="mod_search search-widget">
+    <span class="search-form-icon"><i class="icon"></i></span>
+
+    <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="get" class="popout-form">
+      <div class="formbody">
+        <?php if ($this->id): ?>
+          <input type="hidden" name="id" value="<?= $this->id ?>">
+        <?php endif; ?>
+        <label for="ctrl_keywords_<?= $this->uniqueId ?>" class="invisible"><?= $this->keywordLabel ?></label>
+        <input type="search" name="keywords" id="ctrl_keywords_<?= $this->uniqueId ?>" class="text" value="<?= $this->keyword ?>">
+        <input type="submit" id="ctrl_submit_<?= $this->uniqueId ?>" class="submit" value="<?= $this->search ?>">
+        <i class="close">×</i>
+      </div>
+    </form>
+</div>

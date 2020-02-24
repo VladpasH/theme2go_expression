@@ -1,0 +1,9 @@
+
+<div class="layout_short arc_<?= $this->archive->id ?> block<?= $this->class ?>">
+  <span>
+      <?= $this->linkHeadline ?>,
+      <?php if ($this->hasMetaFields): ?>
+          <time datetime="<?= $this->datetime ?>"><?php echo $this->parseDate("M d", $this->timestamp); ?></time>
+      <?php endif; ?>
+  <span>
+</div>

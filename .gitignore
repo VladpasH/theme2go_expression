@@ -1,0 +1,14 @@
+## IDEs
+nbproject/
+.idea/
+
+
+## css
+*.css.map
+
+#Other
+/vendor/
+*.lock
+
+#Windows
+*.db

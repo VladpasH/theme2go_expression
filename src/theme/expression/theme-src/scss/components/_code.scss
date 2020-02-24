@@ -1,0 +1,40 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Code (ce_code)
+// ---------------------------------------------------------------------------------------------------------------------
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Syntax Highlighter
+
+.syntaxhighlighter {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+
+    table {
+        td.code .line {
+            &:first-child {
+                padding-top: 2px !important;
+            }
+            &:last-child {
+                margin-bottom: 2px !important;
+            }
+        }
+
+        border-bottom-width: 1px !important;
+        border-style: solid !important;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// no highlighter
+
+.ce_code {
+    pre {
+        padding: 15px;
+        line-height: 1.2;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        border-style: solid;
+    }
+}

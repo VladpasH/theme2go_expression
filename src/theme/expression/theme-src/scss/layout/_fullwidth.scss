@@ -1,0 +1,85 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Fullwidth layout
+// ---------------------------------------------------------------------------------------------------------------------
+#wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 100%;
+    transition: max-width .5s ease-out, width .5s ease-out;
+
+    @include breakpoint($bp-large) {
+        padding: 0 15px;
+        width: 100%;
+    }
+    @include breakpoint($bp-xlarge, min) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Content is boxed.
+
+.full-width {
+    #main {
+        .article-boxed {
+            position: static;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+            max-width: 1200px;
+            transition: max-width .5s ease-out, width .5s ease-out;
+
+            @include breakpoint($bp-large) {
+                width: 100%;
+            }
+            @include breakpoint($bp-xlarge, min) {
+                max-width: 1400px;
+                width: 100%;
+            }
+        }
+
+        .mod_article {
+            position: relative;
+
+            &.content-full-width {
+                .article-boxed {
+                    width: 100%;
+                    max-width: 100%;
+                    @include breakpoint($bp-xlarge, min) {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    #wrapper {
+        .background-off-white,
+        .background-light-grey,
+        .background-medium-grey,
+        .background-trans-grey,
+        .background-grey,
+        .background-dark,
+        .background-black,
+        .background-white,
+        .background-primary-color,
+        .background-primary-hue,
+        .background-primary-tint,
+        .background-secondary,
+        .background-secondary-hue,
+        .background-secondary-tint
+        {
+            &.last {
+                margin-bottom: 0;
+                padding-bottom: 65px;
+            }
+            @include breakpoint($bp-large) {
+                margin-left: -15px;
+                margin-right: -15px;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+    }
+}

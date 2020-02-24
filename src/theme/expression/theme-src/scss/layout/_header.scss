@@ -1,0 +1,263 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Header
+// ---------------------------------------------------------------------------------------------------------------------
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    //height: $header-height;
+    z-index: 999;
+    transition: box-shadow .5s ease-in, height .5s ease-in;
+
+    @include breakpoint($bp-large) {
+        height: auto;
+    }
+    .inside {
+        width: 90%;
+        height: $header-height;
+        max-width: 1200px;
+        margin: 0 auto;
+        @include clearfix;
+        transition: max-width .5s ease-out, width .5s ease-out, height .5s ease-in;
+
+        @include breakpoint($bp-large) {
+            width: 100%;
+            height: auto;
+        }
+        @include breakpoint($bp-xlarge, min) {
+            max-width: 1400px;
+            width: 100%;
+        }
+    }
+}
+
+.logo {
+    float: left;
+    width: auto;
+    padding: 10px 0;
+    transition: margin .5s ease-out;
+
+    .mod_article {
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+    // for svg logo as object
+    object {
+        height: $logo-height;
+        transition: height .5s ease-out, width .5s ease-out;
+    }
+    .image_container {
+        margin-bottom:0;
+        img {
+            height: $logo-height;
+            width: auto;
+            transition: height .5s ease-out, width .5s ease-out;
+        }
+    }
+
+    @include breakpoint($bp-mlarge) {
+        padding: 12px 0 13px 0;
+        object {
+            width: auto;
+            height: $logo-height-tablet;
+        }
+        .image_container img {
+            height: $logo-height-tablet;
+            width: auto;
+            transition: height .5s ease-out, width .5s ease-out;
+        }
+    }
+
+    @include breakpoint($bp-large) {
+        display: none;
+    }
+}
+
+@include breakpoint(1700px, min) {
+    .logo {
+        margin-left: -132px;
+    }
+    .main-nav {
+        // see navigation.scss
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Sticky Header
+#header {
+    &.scrolled {
+        .inside {
+            height: $header-height-scrolled;
+        }
+
+        .logo {
+            padding: 5px 0;
+
+            object {
+                height: $logo-height-scrolled;
+            }
+
+            .image_container img {
+                height: $logo-height-scrolled;
+            }
+
+            @include breakpoint(1700px, min) {
+                margin-left: -115px;
+            }
+        }
+
+        .mod_search {
+            line-height: $header-height-scrolled;
+            .popout-form {
+                top: $header-height-scrolled;
+            }
+        }
+        + #header-banner {
+            margin-top: $header-height-scrolled;
+        }
+    }
+}
+
+
+#header-banner {
+    margin-top: $header-height;
+    margin-bottom: 0;
+    transition: margin-top 1s ease-out;
+    @include breakpoint($bp-large) {
+        margin-top: 50px;
+    }
+
+    //banner
+    .mod_article {
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .image_container {
+        margin-bottom: 0;
+    }
+    .ce_text, .ce_image, .ce_list {
+        position: relative;
+
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 3px 0 rgba(0,0,0,0.3);
+        }
+
+        &.text-dark {
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+
+            h1, h2, h3, h4, h5, h6 {
+                text-shadow: 1px 3px 0 rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+    .ce_text, .ce_image {
+
+        > h1, > h2, > h3, > h4, > h5, > h6 {
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-100%,-50%,0);
+            width: 50%;
+            max-width: calc(1400px / 2);
+            transition: translate3d .5s ease-out;
+
+            @include breakpoint($bp-xlarge){
+                max-width: calc(1200px / 2);
+            }
+            @include breakpoint($bp-mlarge){
+                left: 5%;
+                transform: translate3d(0,-50%,0);
+            }
+            @include breakpoint($bp-large) {
+                top: 50px;
+                right: 5%;
+                text-align: center;
+                transform: translate3d(0,0,0);
+                padding-bottom: 70px;
+            }
+        }
+
+        .text-container {
+            z-index: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-100%,-50%,0);
+            width: 50%;
+            max-width: calc(1400px / 2);
+            transition: translate3d .5s ease-out;
+
+            @include breakpoint($bp-xlarge){
+                max-width: calc(1200px / 2);
+            }
+            @include breakpoint($bp-mlarge){
+                left: 5%;
+                transform: translate3d(0,-50%,0);
+            }
+            @include breakpoint($bp-large) {
+                top: 50px;
+                right: 5%;
+                text-align: center;
+                transform: translate3d(0,0,0);
+                padding-bottom: 70px;
+                width: 90%;
+                max-width: 100%;
+            }
+        }
+
+        &.headline-right {
+            > h1, > h2, > h3, > h4, > h5, .text-container {
+                transform: translate3d(0,-50%,0);
+
+                @include breakpoint($bp-mlarge){
+                    left: auto;
+                    right: 5%;
+                }
+
+                @include breakpoint($bp-large) {
+                    top: 50px;
+                    left: 5%;
+                    text-align: center;
+                    transform: translate3d(0,0,0);
+                    padding-bottom: 70px;
+                    width: 90%;
+                    max-width: 100%;
+                }
+            }
+        }
+
+    }
+
+    p {
+        font-size: 3rem;
+    }
+
+}
+
+.slider-image, .slider-wrapper .image-box { // template .ce_text_slider
+    position: relative;
+    height: 555px;
+    width: 100%;
+    background: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+
+    @include breakpoint($bp-mlarge) {
+        height: 450px;
+    }
+    @include breakpoint($bp-medium) {
+        height: auto;
+        min-height: 320px;
+        padding-bottom: 50px;
+        box-sizing: content-box;
+    }
+}

@@ -1,0 +1,58 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Accordions
+// ---------------------------------------------------------------------------------------------------------------------
+
+.ce_accordion {
+    margin-bottom: 0 !important;
+    margin-top: -1px;
+}
+.toggler {
+    position: relative;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    height: 50px;
+    line-height: 22px;
+    font-weight: $fw-semibold;
+    padding: 14px 15px;
+    cursor: pointer;
+    transition: border-color .3s ease-in-out, background-color .3s ease-in-out, color .3s ease-in-out;
+
+    &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 20px;
+        height: 4px;
+        right: 15px;
+        top: 23px;
+        background-color: #000;
+    }
+    &:before {
+        transform: rotate(90deg);
+        transition: transform .3s ease-in-out;
+    }
+
+    &.active {
+        &:before {
+            transform: rotate(0deg);
+        }
+    }
+
+    .ui-icon {
+        display: none;
+    }
+}
+
+.accordion {
+    padding: 15px;
+    border-bottom-width: 1px;
+    border-style: solid;
+
+    // makes background color fill box if there are floated elements
+    > * {
+        &:last-child {
+            @include clearfix;
+        }
+    }
+}

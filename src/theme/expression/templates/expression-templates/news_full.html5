@@ -1,0 +1,67 @@
+
+<div class="layout_full block<?= $this->class ?>">
+	<h1 class="post-headline"><?= $this->newsHeadline ?></h1>
+
+	<!-- content -->
+    <div class="post-content">
+
+        <?php if ($this->hasMetaFields): ?>
+            <p class="info">
+              <time datetime="<?= $this->datetime ?>"><?php echo $this->parseDate("d. F Y", $this->timestamp); ?></time><span class="news-author"><?= $this->author ?></span><span class="news-comment-count"><?= $this->commentCount ?></span>
+            </p>
+        <?php endif; ?>
+        
+        <!-- Featured Image: add teaser image -->	
+        <?php if ($this->addImage): ?> 
+
+            <?php if ($this->href): ?>
+                    <a href="<?= $this->href ?>"<?= $this->attributes ?> title="<?= $this->alt ?>">
+            <?php endif; ?>
+            
+            <figure class="image_container featured-image">
+                <!-- image is loaded with 1080 width and height auto -->
+
+                <img src="<?php  echo $this->getImage($this->urlEncode($this->singleSRC), 1080, auto, proportional ); ?>" alt="<?php echo $this->alt; ?>">
+                
+                <?php if ($this->caption): ?>
+                        <figcaption class="caption"><?= $this->caption ?></figcaption>
+                <?php endif; ?>
+            </figure>
+
+            <?php if ($this->href): ?>
+              </a>
+            <?php endif; ?>
+
+        <?php endif; ?>
+        <!-- End featured image -->
+
+
+
+        <?php if ($this->hasSubHeadline): ?>
+            <h2 class="post-subheadline"><?= $this->subHeadline ?></h2>
+        <?php endif; ?>
+
+        <?php if ($this->hasText): ?>
+            <?= $this->text ?>
+        <?php else: ?>
+            <div class="ce_text block">
+                <?= $this->teaser ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->enclosure): ?>
+            <div class="enclosure">
+                <?php foreach ($this->enclosure as $enclosure): ?>
+                    <p><img src="<?= $enclosure['icon'] ?>" width="18" height="18" alt="<?= $enclosure['mime'] ?>" class="mime_icon"> <a href="<?= $enclosure['href'] ?>" title="<?= $enclosure['title'] ?>"><?= $enclosure['link'] ?> <span class="size">(<?= $enclosure['filesize'] ?>)</span></a></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="post-sharebuttons">
+            <?php echo $this->sharebuttons; ?>
+        </div>
+
+    </div>
+    <!-- End content -->
+
+</div>

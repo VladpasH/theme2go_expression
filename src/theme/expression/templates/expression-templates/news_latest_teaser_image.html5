@@ -1,0 +1,32 @@
+
+<!-- check if teaser has an image -->
+<?php if ($this->addImage): ?>
+
+<div class="layout_latest arc_<?= $this->archive->id ?> split-view block<?= $this->class ?>">
+    <div class="inside-boxed">
+
+        <figure class="image_container<?= $this->floatClass ?> featured-image"<?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>
+          <?php if ($this->href): ?>
+                <a href="<?= $this->href ?>"<?= $this->attributes ?> title="<?= $this->alt ?>">
+          <?php endif; ?>
+                <img src="<?php  echo $this->getImage($this->urlEncode($this->singleSRC), 675, 450, center_center ); ?>" alt="<?php echo $this->alt; ?>">
+          <?php if ($this->href): ?>
+                </a>
+          <?php endif; ?>
+          <?php if ($this->caption): ?>
+                <figcaption class="caption"><?= $this->caption ?></figcaption>
+          <?php endif; ?>
+        </figure>
+
+        <div class="split-view-text">
+            <h2 class="post-headline"><?= $this->newsHeadline ?></h2>
+            <div class="teaser-text">
+                <?= $this->teaser ?>
+            </div>
+            <?php if ($this->hasText): ?>
+                <p class="more"><?= $this->more ?></p>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php endif; ?>

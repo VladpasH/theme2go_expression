@@ -1,0 +1,258 @@
+/* ---------------------------------------------------------------------------------------------------------------------
+// Navigation */
+
+.main-nav {
+    a {
+        &, &:visited, &:link {
+            color: $c-text;
+        }
+        &:hover, &:active, &:focus {
+            color: $c-primary;
+        }
+    }
+
+    .active {
+        span, strong {
+            color: $c-primary;
+        }
+    }
+}
+.level_1 {
+    > .menu-item {
+        &:after {
+            background-color: $c-primary;
+        }
+        &.active, &.trail {
+            >a, > span, > strong {
+                color: $c-primary;
+            }
+        }
+        &.submenu {
+            > a, > span {
+                &:after {
+                    color: $c-grey;
+                    border-color: transparent;
+                    border-bottom-color: $c-text;
+                    border-right-color: $c-text;
+                }
+            }
+        }
+    }
+}
+
+.level_2 {
+    > .menu-item {
+        background-color: $c-primary-hue;
+
+        a, a:link, span, strong {
+            color: $c-nav-hover;
+        }
+
+        &.active, &.forward, &.trail {
+            color: $c-nav-hover;
+            background-color: $c-primary;
+        }
+
+        &:hover, &:active, &:focus {
+            background-color: $c-primary;
+        }
+        &.submenu {
+            > a, > span {
+                &:after {
+                    border-color: transparent;
+                    border-top-color: $c-nav-hover;
+                    border-right-color: $c-nav-hover;
+                }
+            }
+        }
+    }
+}
+
+.level_3 {
+    > .menu-item {
+        background-color: $c-primary-hue;
+
+        a, a:link, span, strong {
+            color: $c-nav-hover;
+        }
+
+        &.active, &.forward, &.trail {
+            color: $c-nav-hover;
+            background-color: $c-primary;
+        }
+
+        &:hover, &:active, &:focus {
+            background-color: $c-primary;
+        }
+    }
+}
+
+@include breakpoint($bp-large) {
+    .main-nav {
+        background: $c-menu-bg;
+    }
+    .level_1 {
+        > .menu-item {
+            border-color: $c-menu-border;
+            a {
+                background-color: $c-menu-bg;
+                &, &:link, &:visited {
+                    color: $c-text;
+                }
+                &:hover, &:active, &:focus, &.trail {
+                    color: $c-nav-hover;
+                    background-color: $c-menu-hover;
+                }
+            }
+
+            &.active {
+                background-color: $c-menu-hover;
+                span {
+                    color: $c-text;
+                    background-color: $c-menu-hover;
+                }
+            }
+            &.submenu.open {
+                border-color: $c-menu-border;
+                >a {
+
+                }
+            }
+        }
+    }
+    .level_2 {
+        > .menu-item{
+            border-color: $c-level2-border;
+            background-color: $c-level2-bg;
+            a {
+                background-color: $c-level2-bg;
+                &, &:link, &:visited {
+                    color: $c-text;
+                }
+                &:hover, &:active, &:focus, &.trail {
+                    color: $c-nav-hover;
+                    background-color: $c-menu-hover;
+                }
+            }
+            &.first {
+                border-color: $c-menu-border;
+            }
+            &.last {
+                border-color: $c-level2-bg;
+            }
+        }
+    }
+    .level_3 {
+        > .menu-item {
+            border-color: $c-level3-border;
+            background-color: $c-level3-bg;
+            a {
+                background-color: $c-level3-bg;
+                &, &:link, &:visited {
+                    color: $c-text;
+                }
+                &:hover, &:active, &:focus, &.trail {
+                    color: $c-nav-hover;
+                    background-color: $c-menu-hover;
+                }
+            }
+            &.first {
+                border-color: $c-level2-border;
+            }
+            &.last {
+                border-color: $c-level3-bg;
+            }
+        }
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// MM-Menu  Mobile Header
+#mobile-header {
+    background-color: $c-body;
+    border-color: $c-border-color;
+}
+
+#hotdog-1, #hotdog-2, #hotdog-3 {
+    background-color: $c-text;
+}
+
+#mobile-button {
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+
+        #hotdog-1, #hotdog-2, #hotdog-3 {
+            background-color: $c-highlight;
+        }
+    }
+}
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// MM-Menu
+
+#mobile-menu {
+    background: $c-white;
+    box-shadow: 1px 0 3px -1px rgba(0,0,0,.1);
+}
+
+
+// first panel with logo/background.
+
+
+.mm-listview {
+    > li {
+        > a , > span {
+            color: $c-black !important;
+            &.active, &.trail {
+                color: $c-highlight !important;
+            }
+            &:hover, &:focus, &:active {
+                color: $c-highlight !important;
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+
+.mm-menu.mm-theme-white {
+    .mm-listview > li .mm-arrow:after, .mm-menu.mm-theme-white .mm-listview > li .mm-next:after {
+        border-color: $c-black !important;
+    }
+
+    .mm-navbar {
+        background-color: $c-primary-hue !important;
+        color: $c-text-light !important;
+        > *, a {
+            color: $c-text-light !important;
+        }
+    }
+
+    .mm-btn:after, .mm-btn:before {
+        background-color: $c-primary-hue !important;
+        border-color: $c-white !important;
+    }
+}
+
+.lang-switch { // for two languages in mmenue (see nhp for reference)
+    border-color: $c-dark-transparent-1;
+
+    .menu-item {
+        a, span {
+            color: $c-black;
+
+            &.active {
+                color: $c-medium-grey;
+            }
+        }
+        &:first-child {
+            a, span {
+                border-color: $c-dark-transparent-1;
+            }
+        }
+    }
+}

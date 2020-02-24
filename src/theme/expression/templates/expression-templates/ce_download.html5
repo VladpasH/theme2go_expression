@@ -1,0 +1,9 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+    <div class="download-single">
+        <span class="icon-wrapper-button">
+        </span>
+        <a href="<?= $this->href ?>" title="<?= $this->title ?>" class="button-primary"><?= $this->link ?> <span class="size">(<?= $this->filesize ?>)</span></a>
+    </div>
+<?php $this->endblock(); ?>

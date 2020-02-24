@@ -1,0 +1,67 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Layout with Sidebars (Left or right)
+// ---------------------------------------------------------------------------------------------------------------------
+.sidebar-right, .sidebar-left {
+    #wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        max-width: 1200px;
+        transition: max-width .5s ease-out, width .5s ease-out;
+
+        @include breakpoint($bp-large) {
+            padding: 0 15px;
+            width: 100%;
+        }
+        @include breakpoint($bp-xlarge, min) {
+            max-width: 1400px;
+            width: 100%;
+        }
+    }
+
+    @include breakpoint($bp-large, min) {
+        #right, #left {
+            padding-top: 50px;
+        }
+    }
+}
+
+@include breakpoint($bp-large, min) {
+    .sidebar-right {
+        #main {
+            padding-right: 50px;
+        }
+    }
+    .sidebar-left {
+        #main {
+            padding-left: 50px;
+        }
+    }
+}
+// ---------------------------------------------------------------------------------------------------------------------
+// Custom Responsive sidebars fold at 1024px
+@include breakpoint($bp-large) {
+    #container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #main, #left, #right {
+        float: none;
+        width: auto;
+        @include clearfix;
+
+    }
+    #right {
+        margin-right: 0;
+        padding: 0 15px;
+        margin: 0 -15px;
+        margin-bottom: 50px;
+    }
+    #left {
+        margin-left: 0;
+        right: auto;
+        padding: 0 15px;
+        margin: 0 -15px;
+        margin-bottom: 50px;
+    }
+}

@@ -1,0 +1,26 @@
+<div class="<?= $this->prefix ?><?php if ($this->class) echo ' ' . $this->class; ?>">
+
+<?php $this->block('label'); ?>
+  <div class="captcha-label">
+    <?php if ($this->label): ?>
+      <label for="ctrl_<?= $this->id ?>"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?>>
+        <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?>
+      </label>
+    <?php endif; ?>
+    <span class="captcha_text<?php if ($this->class) echo ' ' . $this->class; ?>"><?= $this->getQuestion() ?></span>
+  </div>
+<?php $this->endblock(); ?>
+
+<?php $this->block('field'); ?>
+
+  <input type="text" name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>" class="captcha mandatory<?php if ($this->class) echo ' ' . $this->class; ?>" value=""<?= $this->getAttributes() ?>>
+  <?php if ($this->hasErrors()): ?>
+    <p class="error"><?= $this->getErrorAsString() ?></p><br>
+  <?php endif; ?>
+
+  <?php if ($this->addSubmit): ?>
+    <input type="submit" id="ctrl_<?= $this->id ?>_submit" class="submit" value="<?= $this->slabel ?>">
+  <?php endif; ?>
+<?php $this->endblock(); ?>
+
+</div>

@@ -1,0 +1,48 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Imports
+// ---------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Pre
+@import "core/reset";
+@import "layout/global";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Placeholder
+@import "placeholder/placeholders";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Customised Layouts and components
+@import "core/common";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+@import "layout/fullwidth";
+@import "layout/subpage";
+
+@import "layout/navigation";
+@import "components/mobile_menu";
+
+@import "components/service-bar";
+@import "components/change-language";
+@import "components/breadcrumb-banner";
+@import "components/banner";
+@import "components/news";
+@import "components/search";
+@import "components/forms";
+@import "components/code";
+@import "components/content_slider";
+@import "components/gallery";
+@import "components/pagination";
+@import "components/accordions";
+@import "components/downloads";
+//@import "components/media-player"; //needs further development for contao 4
+@import "components/faq";
+@import "components/sitemap";
+@import "components/login_newsletter";
+@import "layout/sidebar-widgets";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Core Imports
+@import "core/common";

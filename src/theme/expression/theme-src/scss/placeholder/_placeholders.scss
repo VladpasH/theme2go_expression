@@ -1,0 +1,320 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Placeholders
+// ---------------------------------------------------------------------------------------------------------------------
+
+%button {
+    display: inline-block;
+    height: 40px;
+    min-width: 40px;
+    line-height: 40px;
+    padding: 0 30px;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    font-weight: 300;
+    border: none;
+    font-size: 16px;
+    transition: background-color .3s ease-in, color .3s ease-in;
+}
+
+%button-right-arrow {
+    padding-right: 10px;
+    padding-left: 20px;
+    border-bottom: none;
+    min-width: 130px;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        right: -20px;
+        width: 0;
+        height: 0;
+        border-top-width: 20px;
+        border-bottom-width: 20px;
+        border-left-width: 20px;
+        border-right-width: 0;
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
+        border-style: solid;
+        transition: border-color .3s ease-in;
+    }
+}
+%button-left-arrow {
+    padding-left: 10px;
+    padding-right: 20px;
+    border-bottom: none;
+    min-width: 130px;
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -20px;
+        width: 0;
+        height: 0;
+        border-top-width: 20px;
+        border-bottom-width: 20px;
+        border-left-width: 0;
+        border-right-width: 20px;
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
+        border-style: solid;
+        transition: border-color .3s ease-in;
+    }
+}
+
+%button-outlined {
+    border-width: 1px;
+    border-style: solid;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color .3s ease-in, border-color .3s ease-in;
+    &:hover, &:active, &:focus {
+        border-width: 1px;
+    }
+    &span {
+        cursor: default;
+    }
+}
+
+%arrow-fine-right {
+    width: 18px;
+    height: 18px;
+    border-bottom-width: 2px;
+    border-right-width: 2px;
+    border-style: solid;
+    transform: rotate(-45deg);
+    transform-origin: 100% 0;
+    margin-left: -8px;
+    margin-top: -3px;
+}
+%arrow-fine-left {
+    width: 18px;
+    height: 18px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-style: solid;
+    transform: rotate(45deg);
+    transform-origin: 0 0;
+    margin-right: -8px;
+    margin-top: -3px;
+}
+
+%pagination-button-left {
+    @include breakpoint($bp-large, min) {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 30px;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        font-weight: 300;
+        transition: background-color .3s ease-in;
+        padding-left: 10px;
+        padding-right: 20px;
+        border-bottom: none;
+        min-width: 130px;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -20px;
+            width: 0;
+            height: 0;
+            border-top-width: 20px;
+            border-bottom-width: 20px;
+            border-left-width: 0;
+            border-right-width: 20px;
+            border-top-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-style: solid;
+            transition: border-color .3s ease-in;
+        }
+    }
+    @include breakpoint($bp-large) {
+        width: 18px;
+        height: 18px;
+        border-bottom-width: 2px;
+        border-left-width: 2px;
+        border-style: solid;
+        transform: rotate(45deg);
+        transform-origin: 0 0;
+        margin-right: -8px;
+        margin-top: -3px;
+        padding-left: 0;
+        display: inline-block;
+        vertical-align: top;
+        text-indent: -9999px;
+        transition: border-color .3s ease, background-color .3s ease, color .3s ease;
+    }
+}
+%pagination-button-right {
+    @include breakpoint($bp-large, min) {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 30px;
+        text-align: center;
+        text-decoration: none;
+        position: relative;
+        font-weight: 300;
+        transition: background-color .3s ease-in;
+        padding-right: 10px;
+        padding-left: 20px;
+        border-bottom: none;
+        min-width: 130px;
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -20px;
+            width: 0;
+            height: 0;
+            border-top-width: 20px;
+            border-bottom-width: 20px;
+            border-left-width: 20px;
+            border-right-width: 0;
+            border-top-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-style: solid;
+            transition: border-color .3s ease-in;
+        }
+    }
+    @include breakpoint($bp-large) {
+        width: 18px;
+        height: 18px;
+        border-bottom-width: 2px;
+        border-right-width: 2px;
+        border-style: solid;
+        transform: rotate(-45deg);
+        transform-origin: 100% 0;
+        margin-left: -8px;
+        margin-top: -3px;
+        padding-left: 0;
+        display: inline-block;
+        vertical-align: top;
+        text-indent: -9999px;
+        transition: border-color .3s ease, background-color .3s ease, color .3s ease;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// animation
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+%fadeIn-slow {
+    -webkit-animation: fadeIn 2s linear .5s;
+    animation: fadeIn 2s linear .5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+%fadeIn-medium {
+    -webkit-animation: fadeIn 1s linear .5s;
+    animation: fadeIn 1s linear .5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Outline Button Styles
+// ---------------------------------------------------------------------------------------------------------------------
+
+// base style
+%button-elegant {
+    background-color: transparent ;
+    line-height: 40px;
+    padding: 1px;
+    cursor: pointer;
+    //color: #FFFFFF ;
+    display: inline-block;
+    //font-size: 18px;
+    //margin-bottom: 25px;
+    position: relative;
+    z-index: 99;
+    font-weight: 300;
+    //min-width: 150px;
+    //following styles should reset form buttons
+    border: none;
+    border-radius: 0;
+    outline: none;
+
+    transition: background-color .35s ease-out;
+
+    > * {
+        width: 100%;
+        height: 100%;
+        display: block;
+        line-height: 38px;
+        padding: 0 30px;
+        transition: background-color .3s ease-out;
+    }
+}
+
+%link-half-underline {
+    position: relative;
+    display: inline-block;
+    text-align: left;
+    letter-spacing: 0;
+    transition: color .3s ease-out, letter-spacing .3s ease-out;
+    cursor: pointer;
+    border-bottom: none;
+    &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        padding-left: 0;
+        bottom: 0;
+        height: 2px;
+        left: 0;
+        right: 65%;
+        transition: right .3s ease-out, color .3s ease-out, width .3s ease-out;
+    }
+    &:hover {
+        letter-spacing: .5px;
+        &:after{
+            right: 0;
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Outline Styles
+
+// border grows around button on hover
+// text is in a span element inside the button. The 1px padding of the button looks like a border. before and after
+// grow around underneath the span element and look like the border is growing.
+%outlined {
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        //background-color: $c-black;
+        width: 0;
+        height: 0;
+        transition: width .3s, height .3s;
+    }
+    &:before {
+        top: 0;
+        left: 0;
+    }
+    &:after {
+        bottom: 0;
+        right: 0;
+    }
+
+    &:hover, &:focus, &:active {
+        outline: none;
+        &:before, &:after {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

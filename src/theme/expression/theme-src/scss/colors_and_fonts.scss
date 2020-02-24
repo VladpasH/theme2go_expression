@@ -1,0 +1,1013 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// COLOR SHEET
+// ---------------------------------------------------------------------------------------------------------------------
+
+@import "framework";
+@import "colors/var-colors_fonts";
+
+// Navigation and News are imported at bottom of dockument - compiles a cleaner css
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Font Settings */
+body {
+    font-family: $f-family-prime;
+}
+
+h1,h2,h3,h4,h5,h6, .banner__headline {
+    font-family: $f-family-headline;
+}
+
+.mod_faqlist {
+    a {
+        font-family: $f-family-prime;
+    }
+}
+
+input, textarea, select {
+    font-family: $f-family-prime;
+}
+
+.mm-menu.mm-theme-white {
+    .mm-navbar {
+        > *, a {
+            font-family: $f-family-headline;
+        }
+    }
+}
+
+// Buttons
+
+.button-primary,
+.button-secondary,
+.back a,
+input.submit,
+button.submit,
+.button-secondary,
+.slider-control .slider-menu b,
+.more a
+{
+    font-family: $f-family-button;
+}
+
+@media only screen and (min-width: 1024px) {
+    .pagination ul li.first a,
+    .pagination ul li.previous a,
+    .pagination .quick-pager li.first a,
+    .pagination .quick-pager li.previous a,
+    .pagination ul li.next a,
+    .pagination ul li.last a,
+    .pagination .quick-pager li.next a,
+    .pagination .quick-pager li.last a {
+        font-family: $f-family-button;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// background colors */
+
+.background-off-white {
+    background-color: $c-off-white;
+}
+.background-trans-grey {
+    background-color: $c-dark-transparent-02;
+}
+.background-light-grey {
+    background-color: $c-light-grey;
+}
+.background-medium-grey {
+    background-color: $c-medium-grey;
+}
+.background-grey {
+    background-color: $c-grey;
+}
+.background-dark {
+    background-color: $c-dark;
+}
+.background-black {
+    background-color: $c-black;
+}
+.background-white {
+    background-color: $c-white;
+}
+.background-primary-color {
+    background-color: $c-primary;
+}
+.background-primary-hue {
+    background-color: $c-primary-hue;
+}
+.background-primary-tint {
+    background-color: $c-primary-tint;
+}
+.background-secondary {
+    background-color: $c-secondary;
+}
+.background-secondary-hue {
+    background-color: $c-secondary-hue;
+}
+.background-secondary-tint {
+    background-color: $c-secondary-tint;
+}
+
+.light-text {
+    h1,h2,h3,h4,h5,h6,p,li,label,legend,span,strong {
+        color: $c-text-light !important;
+    }
+    a {
+        &, &:link {
+            color: $c-text-light !important;
+        }
+        &:visited {
+            color: $c-text-light !important;
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// text */
+
+body {
+    color: $c-text;
+    background: $c-body;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    color: $c-headlines;
+}
+
+h1 {
+    color: $c-h1;
+}
+
+h2 {
+    color: $c-h2;
+}
+
+a {
+    &, &:link {
+        color: $c-text;
+    }
+    &:visited {
+        color: $c-text;
+    }
+    &:hover, &:focus {
+        color: $c-primary;
+    }
+}
+
+p, li {
+    a {
+        border-bottom-color: $c-text;
+
+        &:hover, &:focus {
+            border-bottom-color: $c-primary;
+        }
+    }
+}
+
+.error {
+    color: $c-error;
+}
+
+blockquote {
+    padding: 1.5rem 2rem;
+    background-color: $c-medium-grey;
+    border-left-color: $c-grey;
+    color: $c-dark-transparent-7;
+
+    &:before {
+        color: $c-dark-transparent-5;
+    }
+
+    p:last-child:after {
+        color: $c-dark-transparent-5;
+    }
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Common Elements (header, footer etc) */
+
+#header {
+    background-color: $c-white;
+
+    &.scrolled {
+        box-shadow: 0 1px 2px 0 rgba(220, 220, 225, 1);
+    }
+}
+
+.logo {
+    a {
+        color: $c-text;
+        text-decoration: none;
+    }
+}
+
+.service-bar {
+    background-color: $c-dark;
+    color: $c-text-light;
+
+    a {
+        &, &:link, &:visited {
+            color: $c-text-light;
+        }
+        &:hover, &:active, &:focus {
+            color: $c-primary-tint;
+            opacity: .8;
+        }
+    }
+}
+
+#header-banner{
+    //banner
+    .ce_text, .ce_image, .ce_list {
+        color: $c-text-light;
+
+        h1,h2,h3,h4,h5,h6 {
+            color: $c-text-light;
+        }
+
+        &.text-dark {
+            color: $c-text-dark;
+            h1,h2,h3,h4,h5,h6 {
+                color: $c-text-dark;
+            }
+        }
+        &.text-midtone {
+            color: $c-text-midtone;
+            h1,h2,h3,h4,h5,h6 {
+                color: $c-text-midtone;
+            }
+        }
+    }
+}
+
+
+
+.banner_background {
+    background-color: $c-white;
+}
+
+.background {
+    &--white {
+        background-color: rgba(255, 255, 255, .8);
+        color: $c-black;
+    }
+
+    &--black {
+        background-color: rgba(0, 0, 0, .7);
+        color: $c-white;
+    }
+
+    &--primary {
+        background-color: $c-primary;
+        color: $c-white;
+    }
+    &--text-white {
+        color: $c-white;
+        text-shadow: 1px 3px 0 rgba(0,0,0,0.3);
+    }
+    &--text-black {
+        color: $c-black;
+        text-shadow: 1px 3px 0 rgba(0,0,0,0.3);
+    }
+    &--text-gray {
+        color: $c-text-midtone;
+        text-shadow: 1px 3px 0 rgba(255, 255, 255, 0.7);
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Banner (front page) - Responsive Styles
+
+@include breakpoint($bp-medium) {
+    .background--white {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .5) 55%, rgba(255, 255, 255, .8) 100%);
+    }
+
+    .background--black {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .4) 55%, rgba(0, 0, 0, .8) 100%);
+    }
+
+    .background--primary {
+        background-color: $c-dark-transparent-6;
+    }
+}
+
+
+
+#footer {
+    background-color: $c-dark;
+    color: $c-text-light;
+
+    h1,h2,h3,h4,h5,h6 {
+        color: $c-text-light;
+    }
+
+    a {
+        &, &:link {
+            color: $c-text-light;
+        }
+        &:visited {
+            color: $c-text-light;
+        }
+        &:hover, &:focus {
+            color: $c-medium-grey;
+        }
+    }
+
+    p, li {
+        a {
+            border-bottom-color: $c-text-light;
+
+            &:hover, &:focus {
+                border-bottom-color: $c-grey;
+            }
+        }
+    }
+
+    .sharebuttons {
+        a {
+            .icon-social {
+                transition: opacity .3s ease-out, color .3s ease-out;
+
+                path, polygon {
+                    fill: $c-text-light;
+                    transition: opacity .3s ease-out, fill .3s ease-out;
+                }
+            }
+
+            &:hover {
+                .icon-social {
+                    path, polygon {
+                        fill: $c-primary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#left, #right {
+    @include breakpoint($bp-large) {
+        background-color: $c-dark-transparent-02;
+    }
+}
+
+.image_container {
+    figcaption {
+        background-color: $c-dark-transparent-3;
+        color: $c-text-light;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Navigation:  news categories */
+
+.sidebar-widget {
+    &.mod_newslist {
+        span, h4 {
+            color: $c-text;
+            a, time {
+                color: $c-text;
+            }
+            &:hover, &:focus, &:active {
+                background-color: $c-primary;
+                color: $c-text-light;
+                a, time {
+                    color: $c-text-light;
+                }
+            }
+        }
+    }
+
+    &.mod_newscategories, &.mod_navigation {
+        li {
+            a, span {
+                color: $c-text;
+                background-color: transparent;
+            }
+            a {
+                &:hover, &:focus, &:active {
+                    color: $c-text-light;
+                    background-color: $c-primary;
+                }
+            }
+        }
+    }
+
+    &.mod_navigation {
+        li {
+            background-color: $c-light-grey;
+
+            &.active {
+                background-color: $c-primary;
+                > a, > span {
+                    color: $c-nav-hover;
+                }
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Breadcrumb Banner */
+.mod_breadcrumb{
+    background-color: $c-primary-hue;
+    color: $c-text-light;
+    &:before {
+        background-color: rgba(0,0,0,0.5);
+    }
+    li {
+        border-color: $c-border-color-light;
+        color: $c-text-light;
+    }
+    a {
+        color: $c-text-light;
+        &:visited {
+            color: $c-text-light;
+        }
+        &:hover, &:focus {
+            color: $c-light-grey;
+        }
+    }
+    .ce_image {
+        background-color: $c-primary-hue;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Forms and Buttons */
+
+.mod_search {
+
+    input.submit,
+    button.submit {
+        background-color: $c-button-primary;
+        &:hover, &:focus {
+            background-color: $c-form-success;
+        }
+    }
+    .header {
+        strong {
+            color: $c-highlight;
+        }
+    }
+    .highlight {
+        //color: $c-secondary;
+    }
+}
+
+.main-nav {
+    .mod_search {
+        .search-form-icon {
+            color: $c-text;
+            background-color: transparent;
+            i {
+                background-color: transparent;
+            }
+        }
+        .popout-form {
+            background-color: $c-medium-grey;
+
+            input.text {
+                border-color: $c-dark-transparent-1;
+            }
+        }
+        .close {
+            color: $c-text;
+        }
+    }
+}
+
+input, textarea, select, input.upload {
+    &:not(.empty):invalid {
+        border-color: $c-error;
+    }
+    &, &.empty {
+        background-color: $c-form-background;
+        color: $c-grey;
+        border-color: transparent;
+    }
+
+    &:active, &:focus {
+        background-color: $c-off-white;
+        color: $c-text;
+        border-color: $c-dark-transparent-1;
+    }
+}
+
+label {
+    color: $c-grey;
+}
+
+.explanation {
+    p, li {
+        color: $c-grey;
+    }
+}
+
+.ce_comments {
+    span.mandatory {
+        /* set to body color instead of display:none - allows user styling */
+        color: $c-body;
+    }
+}
+
+.checkbox-squared {
+    background: transparent;
+    -webkit-tap-highlight-color: rgba(155, 155, 155, 0);
+
+    .checkbox-squared-cover {
+        background: $c-dark-transparent-1;
+        -webkit-tap-highlight-color: rgba(155, 155, 155, 0);
+
+        &:after {
+            border-color: $c-dark;
+            -webkit-tap-highlight-color: rgba(155, 155, 155, 0);
+        }
+    }
+    input[type=checkbox]:checked {
+        + .checkbox-squared-cover:after {
+            border-color: $c-success;
+        }
+    }
+}
+
+
+.radio-slider {
+    background: $c-dark-transparent-1;
+    &:after {
+        background: $c-dark;
+    }
+    .radio-slider-knob {
+        background: $c-darker-grey;
+        &:after {
+            background: $c-mid-grey;
+        }
+    }
+    input[type=radio] {
+        &:checked + .radio-slider-knob {
+            &:after {
+                background: $c-success;
+            }
+        }
+    }
+}
+
+fieldset {
+    border-color: $c-form-background;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// buttons */
+
+input.submit,
+button.submit {
+    background-color: $c-button-submit;
+    &:before {
+        border-color: $c-button-submit;
+    }
+
+    &, &:visited, &:link {
+        color: $c-text-light;
+    }
+    &:hover, &:active, &:focus {
+        background-color: $c-button-primary-hover;
+        color: $c-text-light;
+        &:before {
+            border-color: $c-button-primary-hover;
+        }
+    }
+}
+.button-primary{
+    background-color: $c-button-primary;
+    &:before {
+        border-color: $c-button-primary;
+    }
+
+    .pager-default & {
+        background-color: $c-button-primary;
+        &:before {
+            border-color: $c-button-primary;
+        }
+    }
+    &, &:visited, &:link {
+        color: $c-text-light;
+    }
+    &:hover, &:active, &:focus {
+        background-color: $c-button-primary-hover;
+        color: $c-text-light;
+        &:before {
+            border-color: $c-button-primary-hover;
+        }
+    }
+}
+.button-secondary {
+    border-color: $c-border-color;
+
+    &:hover, &:active, &:focus {
+        border-color: $c-black;
+    }
+
+    &span, &.current {
+        &:hover, &:active, &:focus {
+            border-color: $c-border-color;
+        }
+    }
+}
+/* ---------------------------------------------------------------------------------------------------------------------
+// pagination */
+
+.pagination {
+    @include breakpoint($bp-large, min){
+        .next, .last, .first, .previous {
+            background-color: $c-button-primary;
+            &:before {
+                border-color: $c-button-primary;
+            }
+            &, &:visited, &:link {
+                color: $c-text-light;
+            }
+            &:hover, &:active, &:focus {
+                background-color: $c-button-primary-hover;
+                color: $c-text-light;
+                &:before {
+                    border-color: $c-button-primary-hover;
+                }
+            }
+        }
+    }
+    @include breakpoint($bp-large) {
+        .last, .first {
+            &:before, &:after {
+                border-color: $c-button-primary;
+            }
+            &:hover, &:active, &:focus {
+                &:before, &:after {
+                    border-color: $c-primary;
+                }
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// slider navigation */
+
+.slider-control {
+    .slider-menu {
+        b {
+            border-color: $c-text-light;
+            color: $c-text-light;
+            background-color: $c-dark-transparent-3;
+            &:hover, &:focus {
+                background-color: $c-dark-transparent-8;
+                border-color: $c-black;
+                color: $c-white;
+            }
+            &.active {
+                background-color: $c-dark-transparent-8;
+            }
+        }
+    }
+}
+
+.slider-prev, .slider-next {
+    border-color: $c-black;
+    &:hover {
+        border-color: $c-primary;
+    }
+}
+
+#header-banner {
+    .slider-prev, .slider-next {
+        border-color: $c-text-light;
+        box-shadow: 0 4px 4px -2px rgba(0,0,0,0.2);
+        &:hover {
+            border-color: $c-black;
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// share buttons */
+
+.sharebuttons {
+    a {
+        .icon-social {
+            transition: opacity .3s ease-out, color .3s ease-out;
+
+            path, polygon {
+                fill: $c-black;
+                transition: opacity .3s ease-out, fill .3s ease-out;
+            }
+        }
+
+        &:hover {
+            .icon-social {
+                path, polygon {
+                    fill: $c-primary;
+                }
+            }
+        }
+    }
+}
+
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// code */
+
+.syntaxhighlighter {
+    background-color: $c-light-grey !important;
+    border-color: $c-dark-transparent-1 !important;
+
+    table {
+        border-color: $c-dark-transparent-1 !important;
+    }
+
+    .line {
+        &.alt1 {
+            background-color: $c-dark-transparent-05 !important;
+        }
+        &.alt2 {
+            background-color: $c-light-grey !important;
+        }
+    }
+
+    .gutter {
+        .line {
+            border-color: $c-secondary-hue !important;
+        }
+    }
+}
+
+.ce_code {
+    pre {
+        background-color: $c-light-grey;
+        border-color: $c-dark-transparent-1;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// tables */
+
+table {
+    border-color: $c-dark-transparent-1;
+    background: $c-white;
+
+    thead {
+        background-color: $c-dark-transparent-05;
+    }
+    th, td {
+        border-color: $c-dark-transparent-1;
+    }
+
+    tfoot {
+        color: $c-text-midtone;
+        background-color: $c-dark-transparent-05;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// dividers */
+
+.headline-divider {
+    &:after {
+        border-color: $c-border-color-light;
+    }
+
+    &.dark {
+        &:after {
+            border-color: $c-dark;
+        }
+    }
+    &.grey {
+        &:after {
+            border-color: $c-border-color;
+        }
+    }
+}
+
+
+
+hr {
+    border-color: $c-border-color-light;
+
+    &.dark {
+        border-color: $c-dark;
+    }
+    &.grey {
+        border-color: $c-border-color;
+    }
+}
+
+.divider {
+
+    &.symbol {
+        &:before {
+            background-color: transparent;
+            border-top-color: transparent;
+        }
+
+        &.dark {
+            &:before {
+                background-color: $c-dark;
+                border-top-color: $c-dark;
+            }
+        }
+        &.grey {
+            &:before {
+                background-color: $c-medium-grey;
+                border-top-color: $c-border-color;
+            }
+        }
+        &.standard {
+            &:before {
+                background-color: $c-light-grey;
+                border-top-color: $c-border-color-light;
+            }
+        }
+        &.arrow {
+            &:before {
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// accordions */
+
+.toggler {
+    border-color: $c-border-color;
+    &:before, &:after {
+        background-color: $c-text;
+    }
+    &.active {
+        color: $c-highlight;
+        border-bottom-color: $c-off-white;
+        background-color: $c-off-white;
+    }
+}
+
+.accordion {
+    background-color: $c-off-white;
+    border-color: $c-border-color;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Calendar */
+
+.calendar,
+.minicalendar {
+    .next, .previous {
+        a, a:link {
+            color: $c-text-light;
+            border-bottom: 0;
+        }
+
+    }
+    thead {
+        background-color: $c-primary-hue;
+        color: $c-text-light;
+    }
+    .active {
+        background-color: $c-dark-transparent-05;
+    }
+    td {
+        a, a:link {
+            border-color: transparent;
+
+            &:hover, &:active, &:focus {
+                color: $c-text;
+                border-color: $c-text;
+            }
+        }
+    }
+}
+
+.calendar {
+    .today {
+        background-color: $c-primary;
+        color: $c-text-light;
+
+        a, a:link {
+            color: $c-text-light;
+            border-color: transparent;
+
+            &:hover, &:active, &:focus {
+                color: $c-text-light;
+                border-color: $c-text-light;
+            }
+        }
+    }
+}
+
+.minicalendar {
+
+    .active,
+    .today {
+        transition: background-color .3s ease-out;
+
+        &:hover {
+            background-color: $c-off-white;
+        }
+    }
+
+    .selected {
+        background-color: $c-button-primary-hover;
+
+        a {
+            color: $c-white;
+
+            &:hover,
+            &:active,
+            &:focus {
+                color: $c-white;
+            }
+        }
+    }
+
+    .today {
+        background-color: $c-primary;
+        color: $c-text-light;
+
+        a,
+        a.link {
+            color: $c-text-light;
+            border-color: transparent;
+
+            &:hover, &:active, &:focus {
+                color: $c-text;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// Sitemap */
+
+.mod_sitemap {
+    li {
+        border-color: $c-border-color;
+    }
+
+    .level_2 {
+        li {
+            &:before {
+                color: $c-grey;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// faq */
+
+.mod_faqlist {
+    a {
+        &:after {
+            background-color: $c-text;
+        }
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// media player */
+
+
+.icon_play {
+    fill: $c-white;
+}
+.mejs-overlay {
+    background-color: $c-dark-transparent-4;
+
+    &:hover {
+        background-color: rgba(0,0,0,0);
+        .icon_play{
+            fill: rgba(255,255,255, 0.9);
+        }
+    }
+}
+.mejs-container .mejs-controls {
+    background: $c-dark-transparent-3;
+}
+
+.mejs-controls .mejs-time-rail {
+    .mejs-time-loaded {
+        background: $c-primary-tint;
+    }
+    .mejs-time-current {
+        background: $c-secondary;
+    }
+    .mejs-time-handle {
+        border-color: $c-primary;
+    }
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------
+// navigation and news */
+@import "colors/navi-colors";
+@import "colors/news-colors";

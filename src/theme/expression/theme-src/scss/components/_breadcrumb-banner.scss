@@ -1,0 +1,103 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Breadcrumb Banner
+// Full width - can be used on sidebar layouts because it is populated above #wrapper in the fe_page template
+// ---------------------------------------------------------------------------------------------------------------------
+
+.mod_breadcrumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    @include clearfix;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index:1;
+        @extend %fadeIn-slow;
+    }
+    @include breakpoint($bp-large) {
+        height: 150px;
+    }
+
+    .ce_image {
+        height: 100%;
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+    }
+
+    #header-banner & {
+        .ce_image {
+            position: absolute;
+        }
+    }
+    .image-box {
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50%;
+    }
+    ul {
+        float: right;
+        padding: 115px 0;
+        @include breakpoint($bp-large) {
+            display: none;
+        }
+    }
+    li {
+        display: inline;
+        padding: 0 10px;
+        line-height: 50px;
+        border-right-width: 1px;
+        border-right-style: solid;
+        &:last-child {
+            padding-right: 0;
+            border: none;
+        }
+    }
+    li, a {
+        font-size: 18px;
+        border-bottom: none;
+        &.active {
+            font-weight: $fw-semibold;
+        }
+    }
+}
+.page-title {
+    display: inline-block;
+    p {
+        font-size: 50px;
+        font-weight: $fw-light;
+        display: inline-block;
+        line-height: 1;
+        padding: 115px 0;
+        @include breakpoint($bp-large) {
+            padding: 50px 0;
+        }
+    }
+}
+
+.breadcrumb-inside {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 280px;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index:1;
+    @include clearfix;
+    transition: max-width .5s ease-out, width .5s ease-out;
+    opacity: 0;
+    @extend %fadeIn-slow;
+
+    @include breakpoint($bp-large) {
+        width: 100%;
+        padding: 0 15px;
+        height: 150px;
+    }
+    @include breakpoint($bp-xlarge, min) {
+        max-width: 1400px;
+        width: 100%;
+    }
+}

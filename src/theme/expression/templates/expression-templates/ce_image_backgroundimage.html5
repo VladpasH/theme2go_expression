@@ -1,0 +1,9 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+    <div class="image-box" style="background-image: url(<?php  echo $this->getImage($this->urlEncode($this->singleSRC), 1920, 300, center_center); ?>)" >
+		<!-- image as background image -->
+	</div>
+
+<?php $this->endblock(); ?>

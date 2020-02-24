@@ -1,0 +1,54 @@
+<?php
+	$cssClasses = array(
+		$this->class,
+    );
+    $imageFiles = array();
+        if (is_array($this->backgroundImage)) {
+        foreach (\FilesModel::findMultipleByUuids($this->backgroundImage) as $file) {
+            if (in_array(
+                $file->extension,
+                array_map('trim', explode(',', \Config::get('validImageTypes')))
+            )) {
+                $imageFiles[] = $file;
+            }
+        }
+    }
+    $backgroundStyle = '';
+    if (count($imageFiles) && $image = $this->getImageObject($imageFiles[0]->uuid, $this->backgroundImageSize)) {
+        $backgroundStyle .= 'background-image: url("' . $image->src . '");';
+    }
+    if ($this->backgroundSize) {
+        $backgroundStyle .= 'background-size: ' . $this->backgroundSize . ';';
+    }
+    if ($this->backgroundPosition) {
+        $backgroundStyle .= 'background-position: ' . $this->backgroundPosition . ';';
+    }
+    $style = '';
+    if (!count($imageFiles)) {
+        $style .= $backgroundStyle;
+    }
+?>
+
+<?php if (count($imageFiles) && $image = $this->getImageObject($imageFiles[0]->uuid, $this->backgroundImageSize)): ?>
+<div class="banner_background" style="<?php if ($this->backgroundColor): ?>
+    background-color: #<?php echo $this->backgroundColor ?>; <?php endif ?>">
+    <div class="banner <?php echo $this->backgroundBoxing ?>" style="<?php echo htmlspecialchars($backgroundStyle) ?>"
+         data-image-url="<?php echo $image->src ?>">
+
+        <div class="banner__content">
+            <?php if ($this->bannerHeadline  || $this->bannerSubheadline): ?>
+            <div class="banner__content--box <?= $this->headlinePosition ?>
+            background<?= $this->headlineBackgroundColor ?>">
+                <?php if ($this->bannerHeadline): ?>
+                <div class="banner__headline"><?php echo $this->bannerHeadline ?></div>
+                <?php endif ?>
+                <?php if ($this->bannerSubheadline): ?>
+                <div class="banner__subheadline"><?php echo $this->bannerSubheadline ?></div>
+                <?php endif ?>
+            </div>
+            <?php endif ?>
+        </div>
+    </div>
+</div>
+
+<?php endif ?>

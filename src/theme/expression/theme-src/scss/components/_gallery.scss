@@ -1,0 +1,55 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Gallery
+// ---------------------------------------------------------------------------------------------------------------------
+
+
+.ce_gallery {
+    @for $cols from 1 through 12 {
+        > ul.cols_#{$cols} > li {
+            width: (100% - ($cols - 1) * 1.5%) / $cols;
+        }
+    }
+    @include breakpoint($bp-small) {
+        &.ce_gallery > ul > li {
+            //width: auto;
+        }
+    }
+
+    > ul {
+        @include clearfix;
+        margin: 0 !important;
+        padding: 0 0 1.5% 0 !important;
+        list-style: none !important;
+        > li {
+            float: left;
+            width: 23.875%;
+            margin: 1.5% 0 0 1.5%;
+            @include breakpoint($bp-small) {
+                //margin-left: 0;
+                //margin-right: 0;
+            }
+
+            &.col_first {
+                clear: left;
+                margin-left: 0;
+                @include breakpoint($bp-small) {
+                    //clear: none;
+                }
+            }
+            &.col_last {
+                margin-right: -1%;
+                @include breakpoint($bp-small) {
+                    //margin-right: 0;
+                }
+            }
+            > .image_container {
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

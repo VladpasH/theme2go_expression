@@ -1,0 +1,84 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Sidebar widgets
+// ---------------------------------------------------------------------------------------------------------------------
+aside {
+    .mod_search,
+    .mod_subscribe,
+    .mod_unsubscribe,
+    .mod_article {
+        //margin-bottom: 50px;
+        padding-top: 50px;
+
+        h2, h3, h4, h5, h6 {
+            font-size: 24px;
+            padding-left: 30px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: $fw-bold;
+        }
+    }
+}
+
+.sidebar-widget {
+    //margin-bottom: 50px;
+    padding-top: 50px;
+
+    h2, h3, h4, h5, h6 {
+        font-size: 24px;
+        padding-left: 30px;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        font-weight: $fw-bold;
+    }
+}
+
+.sidebar-widget {
+
+    // ---------------------------------------------------------------------------------------------------------------------
+    // Navigation: Latest Posts, Sidebar Navigation
+
+    &.mod_newslist {
+        // by  default the template has an h4 tag. Custom template is span
+        span, h4 {
+            font-size: 18px;
+            line-height: 45px;
+            width: 100%;
+            height: 45px;
+            display: block;
+            padding: 0 30px;
+            white-space: nowrap;
+            margin-bottom: 0;
+            transition: color .3s ease, background .3s ease, background-color .3s ease;
+            a, time {
+                font-size: 18px;
+                white-space: nowrap;
+                transition: color .3s ease;
+            }
+        }
+    }
+
+    // ---------------------------------------------------------------------------------------------------------------------
+    // Navigation: News Categories
+    &.mod_newscategories, &.mod_navigation {
+        font-size: 18px;
+        width: 100%;
+        display: block;
+
+        li {
+            a, span {
+                line-height: 45px;
+                width: 100%;
+                height: 45px;
+                display: block;
+                padding: 0 30px;
+                white-space: nowrap;
+                transition: color .3s ease, background .3s ease, background-color .3s ease;
+            }
+        }
+    }
+    &.mod_navigation {
+        li {
+            margin-bottom: 1px;
+        }
+    }
+}

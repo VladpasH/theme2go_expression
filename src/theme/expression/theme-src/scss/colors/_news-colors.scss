@@ -1,0 +1,140 @@
+/* ---------------------------------------------------------------------------------------------------------------------
+// News */
+
+.news-teaser-img {
+    a {
+        &:before {
+            background-color: transparent;
+        }
+
+        &:hover {
+            &:before {
+                background-color: $c-dark-transparent-3;
+            }
+
+            ~ figcaption {
+                background-color: transparent;
+            }
+        }
+    }
+}
+.post-subheadline {
+    border-color: $c-border-color;
+}
+
+.info {
+    color: $c-text-midtone;
+    border-color: $c-border-color;
+    .news-author, .news-comment-count {
+        border-color: $c-border-color;
+        color: $c-text-midtone;
+    }
+}
+
+.back { // put .more here too for green buttons with arrowhead
+    a {
+        background-color: $c-button-secondary;
+        &:before {
+            border-color: $c-button-secondary;
+        }
+        &, &:visited, &:link {
+            color: $c-text-light;
+        }
+        &:hover, &:active, &:focus {
+            background-color: $c-button-secondary-hover;
+            &:before {
+                border-color: $c-button-secondary-hover;
+            }
+        }
+    }
+}
+
+.more {
+    background: transparent;
+    &:before, &:after {
+        display: none;
+    }
+    a {
+        background-color: transparent;
+        color: $c-text;
+        &:before, &:after {
+            background-color: $c-text;
+        }
+        &:hover, &:focus, &:active {
+            color: $c-text;
+        }
+    }
+}
+
+.date-bar {
+    background-color: $c-body;
+    border-color: $c-border-color;
+    //box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.08);
+}
+.fader-box {
+    &.top-box {
+        background: $c-body; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient($c-body, transparent);
+        background: -o-linear-gradient($c-body, transparent);
+        background: -moz-linear-gradient($c-body, transparent);
+        background: linear-gradient($c-body, transparent);
+    }
+    &.bottom-box {
+        background: $c-body; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(transparent, $c-body);
+        background: -o-linear-gradient(transparent, $c-body);
+        background: -moz-linear-gradient(transparent, $c-body);
+        background: linear-gradient(transparent, $c-body);
+    }
+}
+.date-timeline {
+    &:before {
+        border-top-color: $c-border-color;
+        border-right-color: $c-border-color;
+        border-bottom-color: $c-body;
+        border-left-color: $c-body;
+        background-color: $c-body;
+        //box-shadow: 1px -1px 8px -1px rgba(0,0,0,0.1);
+    }
+}
+
+.ce_comments {
+    border-color: $c-border-color;
+    .confirm {
+        background-color: $c-secondary;
+        color: $c-text-light;
+    }
+}
+
+.mini-teaser {
+    .more {
+        background: transparent;
+        &:before, &:after {
+            display: none;
+        }
+        a {
+            background-color: transparent;
+            color: $c-text;
+            &:before, &:after {
+                background-color: $c-text;
+            }
+            &:hover, &:focus, &:active {
+                color: $c-text;
+            }
+        }
+    }
+}
+
+.layout_latest {
+    &.split-view.fullwidth {
+        background-color: $c-light-grey;
+
+        @include breakpoint($bp-large) {
+            background-color: transparent;
+        }
+    }
+}
+
+.split-view-text {
+    border-color: $c-border-color;
+}

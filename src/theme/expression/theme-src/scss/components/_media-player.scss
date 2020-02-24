@@ -1,0 +1,89 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Media Players
+// ---------------------------------------------------------------------------------------------------------------------
+
+// NOTE: this styling is not included yet. It was for having a responsive media player but
+// since it isn't compatible with contao 4 it has been removed. This way the standard styling and sizing can be used.
+
+// ---------------------------------------------------------------------------------------------------------------------
+// video box / video player
+
+.mejs-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+}
+
+.mejs-mediaelement {
+
+    video, .me-plugin {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    embed {
+        width: 100%;
+        height: 100%;
+    }
+}
+.mejs-overlay-button {
+    background: none;
+}
+.ce_player {
+    .mejs-overlay-button {
+        display: block;
+        width: 15rem;
+        margin-left: -75px;
+        text-align: center;
+        background: none;
+
+        svg {
+            width: 86px;
+            height: 86px;
+        }
+
+        @include breakpoint($bp-medium) {
+            height: 60px;
+
+            svg {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+}
+
+.icon_play {
+    transition: fill .3s ease-out;
+}
+
+.mejs-overlay {
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0,58,112,.4);
+    transition: background-color .3s ease-out;
+
+    &:hover {
+        background-color: rgba(0,58,112,0);
+        .mejs-overlay-button {
+
+        }
+        .icon_play{
+            fill: rgba(255,255,255, 0.9);
+        }
+    }
+}
+
+.mejs-overlay-loading {
+    border-radius: 50%;
+}
+
+
+.mejs-controls .mejs-time-rail {
+    span {
+        border-radius: 0;
+    }
+    .mejs-time-handle {
+        border-style: solid;
+        border-width: 1px;
+    }
+}

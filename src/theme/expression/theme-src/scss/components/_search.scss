@@ -1,0 +1,179 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Search module
+// ---------------------------------------------------------------------------------------------------------------------
+
+.mod_search {
+
+    input.submit {
+        min-width: 0;
+        text-indent: -9999px;
+        background-image: url(../images/icons/icon-magnifier.svg);
+        background-size: 20px;
+        background-position: 50% 50%;
+        background-repeat:no-repeat;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        display: inline-block;
+        cursor: pointer;
+        transition: background-color .3s ease;
+    }
+
+    input[type=search] {
+        width: calc(100% - 40px);
+        max-width: 600px;
+        float: left;
+    }
+
+    .widget-submit {
+        display: inline-block;
+    }
+
+    .header {
+        margin: 10px auto 30px;
+    }
+    > .even, >.odd {
+        margin-bottom: 30px;
+        h3 {
+            margin-bottom: 15px;
+        }
+    }
+    .relevance {
+        font-size: .5em;
+    }
+    .highlight {
+        font-weight: $fw-semibold;
+    }
+    .filesize {
+        display: none;
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Header Widget
+.search-form-icon, .mod_search .close {
+    display: none;
+}
+.main-nav {
+    .mod_search {
+        @include breakpoint($bp-large) {
+            display: none;
+        }
+
+        overflow: visible;
+        display: block;
+        float: right;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        line-height: 100px;
+        height: 100%;
+        transition: line-height .5s ease-in;
+
+        .search-form-icon {
+            line-height: 40px;
+            height: 40px;
+            overflow: visible;
+            padding: 1px;
+            width: 40px;
+            display: inline-block;
+            position: relative;
+            z-index: 99;
+            opacity: 1;
+            vertical-align: middle;
+            transition: background-color .35s ease-out, opacity .35s ease-out;
+
+            i {
+                display: inline-block;
+                text-align: center;
+                line-height: 40px;
+                font-size: 1.8rem;
+                width: 100%;
+                height: 40px;
+                background-image: url(../images/icons/magnifier.svg);
+                background-size: 20px;
+                background-position: 50% 25%;
+                background-repeat:no-repeat;
+                padding: 0;
+                cursor: pointer;
+                transition: background-color .3s ease;
+            }
+
+            &.open {
+                opacity: .1;
+
+                + .popout-form {
+                    opacity: 1;
+                    height: 60px;
+                    input {
+                        &.text, &.submit {
+                            height: 40px;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        .popout-form {
+            display: block;
+            position: absolute;
+            right: 0;
+            width: 380px;
+            height: 1px;
+            padding: 10px;
+            top: 100px;
+            opacity: 0;
+
+            transition: opacity .4s ease-in, height .4s ease-in, top .5s ease-in-out;
+
+            input.text {
+                width: 280px;
+                margin-right: 0;
+            }
+            input.submit {
+                min-width: 0;
+                text-indent: -9999px;
+                background-image: url(../images/icons/icon-magnifier.svg);
+                background-size: 20px;
+                background-position: 50% 50%;
+                background-repeat:no-repeat;
+                width: 40px;
+                padding: 0;
+                display: inline-block;
+                cursor: pointer;
+                transition: background-color .3s ease;
+            }
+
+            input {
+                &.text, &.submit {
+                    vertical-align: top;
+                    min-width: 0;
+                    height: 1px;
+                    opacity: 0;
+                    border: 0;
+                    transition: background-color .35s ease-out, color .35s ease-out, opacity .4s ease-in, height .4s ease-in;
+                }
+            }
+
+
+            .formbody {
+                font-size: 0;
+                height: 100%;
+            }
+        }
+
+        .close {
+            line-height: 40px;
+            padding: 0;
+            margin-left: 10px;
+            float: right;
+            display: inline-block;
+            vertical-align: top;
+            font-size: 40px;
+            font-weight: $fw-light;
+            cursor: pointer;
+        }
+    }
+}

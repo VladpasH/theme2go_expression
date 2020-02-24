@@ -1,0 +1,18 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <?php if (empty($this->articles)): ?>
+    <p class="empty"><?= $this->empty ?></p>
+  <?php else: ?>
+      <div class="timeline-wrapper">
+        <?= implode('', $this->articles) ?>
+        <div class="date-bar">
+            <div class="fader-box top-box"></div>
+            <div class="fader-box bottom-box"></div>
+        </div>
+        <?= $this->pagination ?>
+      </div>
+  <?php endif; ?>
+
+<?php $this->endblock(); ?>

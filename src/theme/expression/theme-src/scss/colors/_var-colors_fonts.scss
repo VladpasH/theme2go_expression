@@ -1,0 +1,198 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// COLOR SHEET
+// ---------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Base Colors
+
+// NOTE. Change variables to names like c-primary, c-secondary. Make sure white text will show up on these colours.
+// That means, if primary or secondary colors are light, then c-text-light has to be changed to a darker color.
+
+// Replacing variables names in one step in color_and_fonts.css file can be done using following RegEx: "_|_"|'_|_'
+
+// !!! Set development mode: true or false
+$dev: true;
+
+
+// if dev = false: Contao Production Mode
+
+// -----------------------------------------------------------------------------
+// Font Families
+$f-family-prime: "_$font1_", sans-serif;
+$f-family-headline: "_$font2_", sans-serif;
+$f-family-button: "_$font3_", serif;
+
+// -----------------------------------------------------------------------------
+// Colors
+$c-primary: "_#$c-pri_";
+$c-secondary: "_#$c-sec_";
+
+$c-primary-hue: "_#$c-pr1_";
+$c-primary-tint: "_#$c-pr2_";
+
+$c-secondary-hue: "_#$c-se1_";
+$c-secondary-tint: "_#$c-se2_";
+
+$c-highlight: "_#$c-hi_"; // this should be contrast color that can be used as text.
+
+$c-button-submit: "_#$sub_";
+
+$c-button-primary: "_#$cbtn1_";
+$c-button-primary-hover: "_#$chov1_";
+$c-button-secondary: "_#$cbtn2_";
+$c-button-secondary-hover: "_#$chov2_";
+$c-form-success: "_#$cbtn!_";
+
+
+$c-white: "_#$white_";
+$c-black: "_#$black_";
+$c-off-white: "_#$offw_";
+$c-light-grey: "_#$lgrey_";
+$c-medium-grey: "_#$mgrey_";
+$c-mid-grey: "_#$mdgre_";
+$c-grey: "_#$grey_";
+$c-darker-grey: "_#$mdark_";
+$c-dark: "_#$dark_";
+
+$c-body: "_#$cbody_";
+$c-nav-hover: "_#$cnavh_";
+
+$c-form-background: $c-light-grey;
+$c-border-color: $c-medium-grey;
+$c-border-color-light: $c-light-grey;
+
+// -----------------------------------------------------------------------------
+// Text
+$c-text: "_#$ctext_";
+
+$c-text-midtone: "_#$textm_";
+$c-text-light: "_#$textl_";
+$c-text-dark: "_#$textd_";
+
+$c-headlines : "_#$headl_";
+$c-h1: "_#$c-h1_";
+$c-h2: "_#$c-h2_";
+
+// -----------------------------------------------------------------------------
+// Backgrounds
+$c-dark-transparent-02: '_rgba("_$tra02_")_';
+$c-dark-transparent-05: '_rgba("_$tra05_")_';
+$c-dark-transparent-1: '_rgba("_$tran1_")_';
+$c-dark-transparent-2: '_rgba("_$tran2_")_';
+$c-dark-transparent-3: '_rgba("_$tran3_")_';
+$c-dark-transparent-4: '_rgba("_$tran4_")_';
+$c-dark-transparent-5: '_rgba("_$tran5_")_';
+$c-dark-transparent-6: '_rgba("_$tran6_")_';
+$c-dark-transparent-7: '_rgba("_$tran7_")_';
+$c-dark-transparent-8: '_rgba("_$tran8_")_';
+$c-dark-transparent-9: '_rgba("_$tran9_")_';
+
+$c-light-transparent: '_rgba("_$tranw_")_';
+
+// -----------------------------------------------------------------------------
+// Events
+$c-success: "_#$yes_";
+$c-error: "_#$error_";
+
+// ---------------------------------------------------------------------------------------------------------------------
+// mobile menu
+$c-menu-bg: $c-white;
+$c-level2-bg: $c-white;
+$c-level3-bg: $c-white;
+$c-menu-hover: $c-primary;
+$c-menu-border: $c-grey;
+$c-level2-border: $c-grey;
+$c-level3-border: $c-grey;
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// COLOR SHEET DEV
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Development Mode
+@if $dev == true {
+
+    $f-family-prime: 'Work Sans', sans-serif;
+    $f-family-headline: 'Roboto Slab', sans-serif;
+    $f-family-button: 'Roboto Slab', serif;
+
+    $c-primary: #248d9d;
+    $c-secondary: #FF2719;
+
+    $c-primary-hue: #185F6A;
+    $c-primary-tint: #D8ECFF;
+
+    $c-secondary-hue: #7F130C;
+    $c-secondary-tint: #CC1F14;
+
+    $c-highlight: $c-primary; // this should be contrast color that can be used as text.
+
+    $c-button-submit: $c-primary;
+    $c-button-primary: #050505;
+    $c-button-primary-hover: #185F6A;
+    $c-button-secondary: #656565;
+    $c-button-secondary-hover: #050505;
+    $c-form-success: $c-primary;
+
+    $c-white: #FFFFFF;
+    $c-black: #000000;
+    $c-off-white: #fcfdfa;
+    $c-light-grey: #f0f0f2;
+    $c-medium-grey: #dedede;
+    $c-mid-grey: #aaaaac;
+    $c-grey: #656565;
+    $c-darker-grey: #3a3a3d;
+    $c-dark: #050505;
+
+    $c-body: $c-white;
+    $c-nav-hover: $c-white;
+
+    $c-form-background: $c-light-grey;
+    $c-border-color: $c-medium-grey;
+    $c-border-color-light: $c-light-grey;
+
+    // -----------------------------------------------------------------------------
+    // Text
+    $c-text: #1C323C;
+
+    $c-text-midtone: $c-grey;
+    $c-text-light: $c-white;
+    $c-text-dark: $c-black;
+
+    $c-headlines : $c-text;
+    $c-h1: $c-primary-hue;
+    $c-h2: $c-text;
+
+    // -----------------------------------------------------------------------------
+    // Backgrounds
+    $c-bg: #FFFFFF;
+    $c-dark-bg: $c-dark;
+    $c-dark-transparent-02: rgba(0, 0, 0, 0.02);
+    $c-dark-transparent-05: rgba(0, 0, 0, 0.05);
+    $c-dark-transparent-1: rgba(0, 0, 0, 0.1);
+    $c-dark-transparent-2: rgba(0, 0, 0, 0.2);
+    $c-dark-transparent-3: rgba(0, 0, 0, 0.3);
+    $c-dark-transparent-4: rgba(0, 0, 0, 0.4);
+    $c-dark-transparent-5: rgba(0, 0, 0, 0.5);
+    $c-dark-transparent-6: rgba(0, 0, 0, 0.6);
+    $c-dark-transparent-7: rgba(0, 0, 0, 0.7);
+    $c-dark-transparent-8: rgba(0, 0, 0, 0.8);
+    $c-dark-transparent-9: rgba(0, 0, 0, 0.9);
+
+    $c-light-transparent: rgba(255, 255, 255, .3);
+
+    // -----------------------------------------------------------------------------
+    // Events
+    $c-success: #257D16;
+    $c-error: #cd0000;
+
+    // ---------------------------------------------------------------------------------------------------------------------
+    // mobile menu
+    $c-menu-bg: $c-white;
+    $c-level2-bg: $c-white;
+    $c-level3-bg: $c-white;
+    $c-menu-hover: $c-primary;
+    $c-menu-border: $c-grey;
+    $c-level2-border: $c-grey;
+    $c-level3-border: $c-grey;
+}

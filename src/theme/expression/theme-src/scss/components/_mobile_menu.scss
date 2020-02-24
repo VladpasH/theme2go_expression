@@ -1,0 +1,299 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Mobile Menu (MMENU Plugin)
+// ---------------------------------------------------------------------------------------------------------------------
+
+#mobile-header {
+    display: none;
+
+    @include breakpoint($bp-large) {
+        display: block;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5rem;
+        text-align: center;
+        width: 100%;
+        border-bottom-width: 1px;
+        border-style: solid;
+
+        &.scrolled {
+            box-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    .logo {
+        display: block;
+        height: 50px;
+        padding: 5px 50px;
+        width: 100%;
+        position: absolute;
+        img {
+            max-height: 40px;
+            width: auto;
+            margin: 0 auto;
+        }
+    }
+    .mod_navigation {
+        display: none;
+    }
+
+    .mod_changelanguage {
+        display: none; // to do - add language switcher and style it
+    }
+}
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Mobile Menu Button
+// ---------------------------------------------------------------------------------------------------------------------
+
+#mobile-button {
+    display: none;
+    @include breakpoint($bp-large) {
+        display: block;
+    }
+
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 5px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    transition: background-color .3s ease-out;
+}
+
+#menu-button {
+    position: relative;
+    height: 26px;
+    width: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: none;
+    padding: 0;
+    z-index: 99;
+}
+
+#menu-button {
+
+    &:active, &:focus, &:visited, &:hover {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        outline: 0;
+    }
+
+    @include clearfix;
+}
+
+
+#hotdog-1, #hotdog-2, #hotdog-3 {
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    /* prepare for animation */
+    -ms-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transform: translate3d(0,0,0);
+    transition: top .2s linear, opacity .2s ease-in-out, transform .2s linear, background-color .3s ease;
+}
+#hotdog-1 {
+    top: 4px; left: 0;
+}
+#hotdog-2 {
+    top: 10px; left: 0;
+}
+#hotdog-3 {
+    bottom: 8px; left: 0;
+}
+
+html.mm-opened {
+    #hotdog-1.hotdog {
+        top: 10px;
+        -ms-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    #hotdog-2.hotdog {
+        opacity: 0;
+    }
+    #hotdog-3.hotdog {
+        bottom: 14px;
+        -ms-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+}
+
+
+
+
+// -----------------------------------------------------------------------------
+// page overlay (can be used with mobile)
+
+.page-overlay {
+    display: none;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+// ---------------------------------------------------------------------------------------------------------------------
+// MM-Menu
+
+#mobile-menu {
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+
+.mm-menu{
+    top: 5rem !important;
+
+    &.mm-offcanvas {
+        width: $bp-small !important;
+        max-width: $bp-small !important;
+
+        @include breakpoint($bp-small) {
+            width: 320px !important;
+        }
+    }
+}
+
+html.mm-opening .mm-slideout {
+    -webkit-transform: translate3d($bp-small,0,0)!important;
+    transform: translate3d($bp-small,0,0)!important;
+
+    @include breakpoint($bp-small) {
+        -webkit-transform: translate3d(320px,0,0)!important;
+        transform: translate3d(320px,0,0)!important;
+    }
+}
+
+.mm-panels {
+    > .mm-panel {
+        padding-right: 10px !important;
+
+        > .mm-listview {
+            margin: 0 -10px 20px -20px !important;
+        }
+    }
+    .menu-item {
+        height: 5rem;
+        line-height: 5rem;
+        padding: 0 10px 0 20px;
+    }
+}
+
+.mm-listview {
+    .mm-next {
+        right: 10px !important;
+
+        &:before {
+            top: 2px !important;
+            bottom: 3px !important;
+        }
+    }
+}
+
+
+// first panel with logo/background.
+
+
+.mm-listview {
+    > li {
+        > a , > span {
+            //color: $c-black !important;
+            padding: 15px 0 15px 15px !important;
+            font-size: 16px;
+            line-height: 1.2;
+            vertical-align: middle;
+            display: inline-block !important;
+            width: 100%;
+            transition: color 3s ease-out;
+            &.active {
+                //color: $c-primary-tint !important;
+            }
+            &:hover, &:focus, &:active {
+                //color: $c-primary-tint !important;
+                background-color: transparent !important;
+            }
+        }
+    }
+    .mm-next.mm-fullsubopen {
+        + span, + a {
+            padding-right: 35px !important;
+        }
+    }
+    .mm-next+a, .mm-next+span {
+        width: calc(100% - 50px);
+    }
+}
+
+.mm-menu.mm-theme-white {
+    .mm-listview > li .mm-arrow:after, .mm-menu.mm-theme-white .mm-listview > li .mm-next:after {
+        //see navi-colors.scss
+    }
+    .mm-navbar {
+        height: 5rem;
+        > *, a {
+            padding-top: 15px;
+        }
+    }
+    .mm-btn:after, .mm-btn:before {
+        //see navi-colors.scss
+    }
+}
+
+
+.mm-listview.mm-border-offset > li:after, .mm-menu.mm-border-offset .mm-listview > li:after {
+    right: 10px !important;
+    left: 10px !important;
+}
+
+.mm-prev:before {
+    top: 8px !important;
+}
+
+
+
+.lang-switch { // for two languages in mmenue (see nhp for reference)
+    @include clearfix;
+    display: block;
+    border-bottom-width: 1px;
+    border-style: solid;
+
+    li {
+        width: 50%;
+        float: left;
+        padding: 1px;
+
+        a, span {
+            line-height: 48px;
+            display: block;
+            text-align: center;
+            font-size: 16px;
+
+            &.active {
+                //see navi_colors.scss
+            }
+        }
+
+        &:first-child {
+            a, span {
+                border-right-width: 1px;
+                border-right-style: solid;
+            }
+        }
+    }
+}

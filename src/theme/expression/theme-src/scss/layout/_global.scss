@@ -1,0 +1,463 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// Global definitions
+// ---------------------------------------------------------------------------------------------------------------------
+/*______________________________________________________________________________
+    Theme Styling
+_____________________*/
+html,
+body {
+  font-size: $f-size-base;
+}
+
+body {
+    font-size: 1.8rem;
+    @include breakpoint($bp-medium) {
+        font-size: 1.6rem;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Global Layout Definitions
+
+.mod_article {
+    padding: 50px 0;
+
+    &.last {
+        margin-bottom: 140px;
+        @include breakpoint($bp-large) {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+
+// -----------------------------------------------------------------------------
+// text sizing
+
+p, li {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-weight: $fw-light;
+}
+
+.error {
+    font-weight: $fw-semibold;
+}
+
+strong, .bold {
+    font-weight: $fw-semibold;
+}
+
+em {
+    font-style: italic;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    line-height: 1.2;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 6rem;
+    margin-top: 3rem;
+    //margin-bottom:.5em;
+    font-weight: $fw-bold;
+    @include breakpoint($bp-medium) {
+        font-size: 3rem;
+    }
+}
+h2 {
+    font-size: 3.6rem;
+    //margin-bottom:.75em;
+    font-weight: $fw-normal;
+    @include breakpoint($bp-medium) {
+        font-size: 2.4rem;
+    }
+}
+h3 {
+    font-size: 2.8rem;
+    //margin-bottom:.75em;
+    font-weight: $fw-normal;
+    @include breakpoint($bp-medium) {
+        font-size: 2.4rem;
+    }
+}
+h4 {
+    font-size: 2.4rem;
+    //margin-bottom:.75em;
+    font-weight: $fw-bold;
+    @include breakpoint($bp-medium) {
+        font-size: 1.8rem;
+    }
+}
+h5 {
+    font-size: 1.8rem;
+    //margin-bottom:.75em;
+    font-weight: $fw-bold;
+    @include breakpoint($bp-medium) {
+        font-size: 1.6rem;
+    }
+}
+h6 {
+    font-size: 1.8rem;
+    //margin-bottom:.75em;
+    font-weight: $fw-bold;
+    @include breakpoint($bp-medium) {
+        font-size: 1.6rem;
+    }
+}
+
+
+#main {
+    .ce_text, .ce_list, .ce_code, .ce_table,
+    .ce_comments,
+    .ce_sliderStart,
+    .ce_download, .ce_downloads,
+    .ce_player, .ce_youtube,
+    .mod_faqlist, .mod_faqpage
+    {
+        margin-bottom: 50px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 1.2rem;
+            @include breakpoint($bp-medium) {
+                margin-bottom: 2rem;
+            }
+        }
+    }
+
+    .text-container {
+        @include breakpoint($bp-medium) {
+            clear: both;
+        }
+    }
+}
+
+.align-left {
+    text-align: left;
+}
+.align-right {
+    text-align: right;
+}
+.align-center{
+    text-align: center;
+}
+
+// -----------------------------------------------------------------------------
+// hyperlinks
+
+a {
+    &, &:link, &:visited {
+        text-decoration: none;
+    }
+    transition: color .3s ease, border .3s ease, letter-spacing .3s ease;
+}
+
+
+p, li {
+    a {
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+
+        &:hover {
+            border-bottom-width: 3px;
+        }
+
+        .mod_navigation &, .mod_newscategories &, .mod_breadcrumb &, .sharebuttons & {
+            border-bottom: none;
+        }
+    }
+}
+
+.image_container {
+    position: relative;
+    margin-bottom: 25px;
+    a {
+        border: none;
+        display: block;
+    }
+    img {
+        vertical-align: top;
+        max-width: 100%;
+        height: auto;
+    }
+    figcaption {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        line-height: 1.2;
+        width: 100%;
+        padding: 10px;
+        transition: background-color .3s ease-in, color .3s ease-in;
+
+        @include breakpoint($bp-small){
+            padding: 3px 5px;
+            font-size: 12px;
+        }
+
+    }
+
+    &.float_left {
+        margin-right: 20px;
+    }
+    &.float_right {
+        margin-left: 20px;
+    }
+
+    .hyperlink_img {
+        img {
+            width: auto;
+        }
+    }
+}
+
+.button-primary {
+    border-bottom: none;
+    @extend %button;
+}
+.button-secondary {
+    @extend %button;
+    @extend %button-outlined;
+}
+
+// -----------------------------------------------------------------------------
+// blockquote, quotes
+
+blockquote, q {
+    padding: 1.5rem 2rem;
+    border-left-width: 2px;
+    border-left-style: solid;
+
+    &:before {
+        content: "\201C";
+        font-size: 6rem;
+        line-height: 0.1rem;
+        margin-right: 1rem;
+        vertical-align: -.5em;
+    }
+
+    p:first-child {
+        display: inline;
+    }
+
+    p:last-child:after {
+        content: "\201D";;
+        font-size: 6rem;
+        line-height: 0.1rem;
+        margin-left: 1rem;
+        vertical-align: -.5em;
+    }
+
+    p, li, a, table {
+        font-size: 1.6rem;
+        font-weight: $fw-normal;
+
+        @include breakpoint($bp-large) {
+            font-size: 1.5rem;
+        }
+    }
+    @include breakpoint($bp-medium) {
+        padding: 1rem;
+
+        &:before {
+            font-size: 5rem;
+        }
+
+        p:last-child:after {
+            font-size: 5rem;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// lists
+
+.ce_text, .ce_list {
+    ul, ol {
+        padding-left: 25px;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+
+            li {
+                &:before {
+                    content: '\2010';
+                    left: -1rem;
+                }
+            }
+        }
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            position: relative;
+            &:before {
+                content: '\25AA';
+                display: block;
+                position: absolute;
+                left: -2rem;
+                height: 2.5rem;
+                width: 1rem;
+                font-size: 2.2rem;
+            }
+        }
+    }
+
+    ol {
+        list-style: decimal;
+
+        > li:first-child {
+            margin-left: -2px;
+            text-indent: 2px;
+        }
+
+        ol {
+            list-style: upper-roman;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// tables
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-width: 1px;
+    border-style: solid;
+
+    > thead, > tbody:first-child, > tfoot:first-child + tbody {
+        > tr:first-child {
+            > th, > td {
+                border-top: 0;
+            }
+        }
+    }
+
+    th {
+        font-weight: $fw-semibold;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 7px;
+        border-style: solid;
+        border-width: 1px 0 0 1px;
+
+        &:first-child {
+            border-left: 0;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// dividers
+
+.headline-divider {
+    text-align: center;
+    overflow: hidden;
+    clear: both;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+        border: 0;
+        border-top-width: 1px;
+        border-style: solid;
+    }
+
+    &.align-left {
+        text-align: left;
+        padding-right: 5px;
+
+        &:after {
+            margin-right: -100%;
+        }
+    }
+    &.align-right {
+        text-align: right;
+        padding-left: 5px;
+
+        &:after {
+            display: none;
+        }
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 100%;
+            vertical-align: middle;
+            border: 0;
+            border-top-width: 1px;
+            border-style: solid;
+            margin-left: -100%;
+        }
+    }
+}
+
+
+hr {
+    margin-bottom: 50px;
+    margin-top: 1px;
+    border: 0;
+    border-top-width: 1px;
+    border-style: solid;
+
+    @include clearfix;
+}
+
+.divider {
+    display: block;
+
+    &.symbol {
+        &:before {
+            content: '';
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: -10px;
+            width: 20px;
+            height: 20px;
+        }
+        &.circle {
+            &:before {
+                border-radius: 10px;
+                border-radius: 50%;
+            }
+        }
+        &.arrow {
+            &:before {
+                width: 0;
+                height: 0;
+                border-top-width: 15px;
+                border-bottom-width: 0;
+                border-left-width: 15px;
+                border-right-width: 15px;
+                border-left-color: transparent !important;
+                border-right-color: transparent !important;
+                border-style: solid;
+                margin-bottom: -16px;
+            }
+        }
+        &.diamond {
+            &:before {
+                transform: rotate(45deg);
+                margin-bottom: -11px;
+            }
+        }
+    }
+
+}
