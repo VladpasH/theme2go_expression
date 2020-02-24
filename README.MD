@@ -3,6 +3,16 @@
 
 An elegant, minimal, flat responsive design that puts your content in focus. It can cater for comprehensive and simple websites and is especially suitable for blogs. Minimal. Flat. Expressive.
 
+
+
+### Notice
+
+This theme was available in the official [contao theme store](https://themes.contao.org/) for buying. 
+Since we stopped development and support and took it offline, we decided to provide it to the community as open source and for free.  
+e3N has no plans to continue development and support on this theme. We're open for pull requests by the community. 
+We may or may not answering questions. 
+
+
 ### Description
 The Theme has a Flat Design with fluid animations that focus on function. Easy to read modern Fonts have be chosen to put text content unobtrusively in focus. The theme colours have been kept modest and are implemented accenting and supporting function and content.
 
